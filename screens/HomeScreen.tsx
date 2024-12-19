@@ -23,7 +23,9 @@ const HomeScreen = () => {
   const { colors } = useTheme();
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
-      <CurrentWaypoint />
+      <View style={{ marginTop: 30 }}>
+        <CurrentWaypoint />
+      </View>
       <ScrollableContentFeed />
       <FloatingComposeButton />
     </View>

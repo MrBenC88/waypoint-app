@@ -22,7 +22,6 @@ const CurrentWaypoint = () => {
 
 const styles = StyleSheet.create({
   waypointSection: {
-    marginTop: 30,
     flexDirection: "row",
     alignItems: "center",
     marginVertical: 8,
