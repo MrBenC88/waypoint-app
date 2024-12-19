@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, ScrollView } from "react-native";
+import { View, StyleSheet, ScrollView, TouchableOpacity } from "react-native";
 import {
   Text,
   Avatar,
@@ -8,9 +8,10 @@ import {
   Divider,
   Chip,
   useTheme,
+  Card,
 } from "react-native-paper";
 
-const ProfileScreen = () => {
+const ProfileScreen = ({ navigation }) => {
   const { colors } = useTheme();
 
   return (
@@ -36,7 +37,7 @@ const ProfileScreen = () => {
           icon="pencil"
           size={20}
           iconColor={colors.primary}
-          onPress={() => console.log("Edit Profile")}
+          onPress={() => navigation.navigate("EditProfile")}
         />
       </View>
 
@@ -64,25 +65,31 @@ const ProfileScreen = () => {
           🗓️ My Trips (2)
         </Text>
 
-        <View style={styles.tripItem}>
+        <TouchableOpacity
+          style={styles.tripItem}
+          onPress={() => navigation.navigate("TripView")}
+        >
           <Text style={{ color: colors.onBackground }}>
             📍 New York City, NY
           </Text>
           <Text style={{ color: colors.onSurfaceVariant }}>
             Dec 20 - Dec 25
           </Text>
-        </View>
+        </TouchableOpacity>
 
-        <View style={styles.tripItem}>
+        <TouchableOpacity
+          style={styles.tripItem}
+          onPress={() => navigation.navigate("TripView")}
+        >
           <Text style={{ color: colors.onBackground }}>📍 Tokyo, Japan</Text>
           <Text style={{ color: colors.onSurfaceVariant }}>Upcoming</Text>
-        </View>
+        </TouchableOpacity>
 
         <Button
           icon="plus"
           mode="outlined"
           style={styles.addTripButton}
-          onPress={() => console.log("Add New Trip")}
+          onPress={() => navigation.navigate("AddTrip")}
         >
           Add New Trip
         </Button>
@@ -98,7 +105,7 @@ const ProfileScreen = () => {
         <Button
           mode="outlined"
           style={styles.viewFriendsButton}
-          onPress={() => console.log("View Friends")}
+          onPress={() => navigation.navigate("FriendsPage")}
         >
           View Friends
         </Button>
@@ -111,7 +118,7 @@ const ProfileScreen = () => {
         <Button
           mode="outlined"
           style={styles.settingsButton}
-          onPress={() => console.log("Go to Settings")}
+          onPress={() => navigation.navigate("AccountSettings")}
         >
           ⚙️ Account Settings
         </Button>
@@ -177,7 +184,7 @@ const styles = StyleSheet.create({
   tripItem: {
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingVertical: 8,
+    paddingVertical: 12,
   },
   addTripButton: {
     marginTop: 10,

@@ -1,6 +1,5 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { TouchableOpacity, View, StyleSheet } from "react-native";
 import { useTheme } from "react-native-paper";
 import HomeScreen from "../screens/HomeScreen";
 import ProfileScreen from "../screens/ProfileScreen";
@@ -9,44 +8,42 @@ import Icon from "react-native-vector-icons/Feather"; // Feather Icons
 
 const Tab = createBottomTabNavigator();
 
-// Custom Tab Bar Button
-const CustomTabBarButton = ({ children, onPress }) => (
-  <TouchableOpacity
-    style={styles.customTabButton}
-    activeOpacity={0.8}
-    onPress={onPress}
-  >
-    {children}
-  </TouchableOpacity>
-);
-
 const TabNavigator = () => {
   const { colors } = useTheme();
 
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-        headerShown: false,
-        tabBarShowLabel: false, // Hide the label names for Home, Feed, Profile
+        headerShown: false, // Hide headers for tab screens
+        tabBarShowLabel: false, // Hide label names for Home, Explore, Profile
         tabBarIcon: ({ color, size }) => {
           let iconName;
-          if (route.name === "Home") iconName = "home";
-          else if (route.name === "Explore") iconName = "search";
-          else if (route.name === "Profile") iconName = "user";
+          switch (route.name) {
+            case "Home":
+              iconName = "home";
+              break;
+            case "Explore":
+              iconName = "search";
+              break;
+            case "Profile":
+              iconName = "user";
+              break;
+            default:
+              iconName = "circle";
+          }
           return <Icon name={iconName} size={22} color={color} />;
         },
         tabBarActiveTintColor: colors.primary,
         tabBarInactiveTintColor: colors.onSurface,
         tabBarStyle: {
           backgroundColor: colors.surface,
-          height: 50,
+          height: 50, // Ensures better touch targets for mobile devices
           shadowColor: colors.shadow,
           shadowOffset: { width: 0, height: -2 },
           shadowOpacity: 0.1,
           shadowRadius: 4,
-          elevation: 2,
+          elevation: 2, // Improved elevation for better shadow on Android
         },
-        tabBarButton: (props) => <CustomTabBarButton {...props} />,
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
@@ -55,13 +52,5 @@ const TabNavigator = () => {
     </Tab.Navigator>
   );
 };
-
-const styles = StyleSheet.create({
-  customTabButton: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
 
 export default TabNavigator;

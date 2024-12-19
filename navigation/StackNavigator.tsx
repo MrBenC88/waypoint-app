@@ -4,21 +4,55 @@ import LoginScreen from "../screens/LoginScreen";
 import RegisterScreen from "../screens/RegisterScreen";
 import TabNavigator from "./TabNavigator";
 import { IconButton } from "react-native-paper";
-import ExploreScreen from "../screens/ExploreScreen";
+import { useNavigation } from "@react-navigation/native";
 
 const Stack = createStackNavigator();
 
 const StackNavigator = () => (
   <Stack.Navigator
-    initialRouteName="MainApp" // should be LoginScreen, change this for skipping
+    initialRouteName="LoginScreen" // Start on the Login screen
     screenOptions={{
-      headerShown: false, // Show headers for stack screens
+      headerShown: false, // Hide header by default
     }}
   >
-    <Stack.Screen name="LoginScreen" component={LoginScreen} />
-    <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
-    <Stack.Screen name="MainApp" component={TabNavigator} />
-    <Stack.Screen name="ExploreScreen" component={ExploreScreen} />
+    {/* Login Screen */}
+    <Stack.Screen
+      name="LoginScreen"
+      component={LoginScreen}
+      options={({ navigation }) => ({
+        headerShown: true,
+        headerLeft: () => (
+          <IconButton 
+            icon="arrow-left" 
+            onPress={() => navigation.goBack()} 
+          />
+        ),
+        title: "Login", // Set the title of the screen
+      })}
+    />
+
+    {/* Register Screen */}
+    <Stack.Screen
+      name="RegisterScreen"
+      component={RegisterScreen}
+      options={({ navigation }) => ({
+        headerShown: true,
+        headerLeft: () => (
+          <IconButton 
+            icon="arrow-left" 
+            onPress={() => navigation.goBack()} 
+          />
+        ),
+        title: "Register", // Set the title of the screen
+      })}
+    />
+
+    {/* Main App (Tab Navigation) */}
+    <Stack.Screen
+      name="MainApp"
+      component={TabNavigator}
+      options={{ headerShown: false }}
+    />
   </Stack.Navigator>
 );
 
