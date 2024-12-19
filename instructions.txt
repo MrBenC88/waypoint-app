@@ -1,0 +1,174 @@
+### **📘 Instructions for Cursor Composer: Waypoint MVP Project**
+
+**Objective**: Build the UI for the core features of Waypoint using mock data and ensure it has a clean, friendly, and adventurous design. We have already implemented Firebase, Firestore, login/logout, and tab/stack navigation. We want to focus on the UI and experience for the following key screens and components.
+
+Remember we must always be in the waypoint-mvp directory when running commands. by cd waypoint-mvp
+---
+
+## **1️⃣ Project Directory Structure**
+
+```
+📁 waypoint-mvp
+  ┣ 📁 assets          // Icons, images, and animations
+  ┣ 📁 components      // Reusable components (e.g., Button, Card, Header, etc.)
+  ┣ 📁 navigation      // Navigation logic (e.g., TabNavigator, StackNavigator)
+  ┣ 📁 screens         // App screens (e.g., HomeScreen, ProfileScreen, FeedScreen, LoginScreen, RegisterScreen)
+  ┣ 📁 services        // Firebase and API services (e.g., firebase.ts, authService.tsx)
+  ┣ 📁 context         // React Context for managing global app state (optional)
+  ┣ 📁 styles          // Shared/global styles
+  ┣ 📄 App.tsx         // Main entry point
+  ┗ 📄 .env            // Environment variables (like Firebase config)
+```
+Remember we must always be in the waypoint-mvp directory when running commands. by cd waypoint-mvp
+---
+
+## **2️⃣ Core Pages to Implement**
+
+1. **HomeScreen**
+2. **FeedScreen**
+3. **ProfileScreen**
+4. **Waypoint Creation Screen**
+
+These screens should prioritize a clean, friendly, and adventurous design using a modern, well-supported UI component library (like **React Native Paper** or **React Native Elements**).
+
+
+---
+
+## **3️⃣ Key Features to Implement**
+
+### **🌍 Home Screen (Who’s in Your City?)**
+
+**File**: `/screens/HomeScreen.tsx`
+
+**Objective**: Show a horizontal scrollable view of friends who are currently in the user's city. 
+
+**Features to Implement:**
+- **"Who’s in Your City?" Section**: Display a horizontal scroll of friend profile cards.
+- **Friend Card**: Each card should display the friend’s **profile picture**, **name**, and **status** (like "Available to meet").
+- **Action**: Clicking on a friend’s card should navigate to their profile (use mock navigation for now).
+
+**Mock Data Example**:
+```javascript
+const MOCK_FRIENDS = [
+  { id: '1', name: 'Alice', status: 'Available to meet', avatar: 'https://example.com/avatar1.png' },
+  { id: '2', name: 'Bob', status: 'Exploring the city', avatar: 'https://example.com/avatar2.png' },
+  { id: '3', name: 'Charlie', status: 'Just moved here!', avatar: 'https://example.com/avatar3.png' },
+];
+```
+
+---
+
+### **📜 Feed Screen (Status Feed)**
+
+**File**: `/screens/FeedScreen.tsx`
+
+**Objective**: Display a **list of status updates** from friends and users.
+
+**Features to Implement:**
+- **Status Feed**: A vertical **FlatList** that shows each friend's trip status.
+- **Status Update Cards**: Each card displays the friend’s **profile picture**, **name**, **status update**, and **date** of the status.
+- **Interactive UI**: The user can "like" or "comment" (mock this functionality for now).
+
+**Mock Data Example**:
+```javascript
+const MOCK_STATUSES = [
+  { id: '1', name: 'Alice', status: 'Visiting New York from Dec 20-25', avatar: 'https://example.com/avatar1.png' },
+  { id: '2', name: 'Bob', status: 'Exploring Toronto this weekend!', avatar: 'https://example.com/avatar2.png' },
+  { id: '3', name: 'Charlie', status: 'Just arrived in Vancouver!', avatar: 'https://example.com/avatar3.png' },
+];
+```
+
+**UI Design Notes:**
+- Each card should have a soft color background and a friendly feel.
+- Use a **Card component** from **React Native Elements** or **React Native Paper**.
+
+---
+
+### **👤 Profile Screen**
+
+**File**: `/screens/ProfileScreen.tsx`
+
+**Objective**: Display **user profile information** and a **sign out button**.
+
+**Features to Implement:**
+- **Profile Info**: Show the user’s **profile picture**, **name**, **email**, and **bio**.
+- **Edit Button**: Add a button to "Edit Profile" (this can be non-functional for now).
+- **Sign Out Button**: Sign out functionality has already been implemented, so this button should just call `auth.signOut()` and navigate back to **LoginScreen**.
+
+**Mock Data Example**:
+```javascript
+const MOCK_PROFILE = {
+  name: 'John Doe',
+  email: 'john@example.com',
+  bio: 'I love traveling the world and exploring new places!',
+  avatar: 'https://example.com/avatar4.png',
+};
+```
+
+**UI Design Notes:**
+- The UI should feel warm and personal.
+- Include an **Edit Profile** button, even if it’s not functional yet.
+
+---
+
+### **📍 Waypoint Creation Screen**
+
+**File**: `/screens/WaypointCreationScreen.tsx`
+
+**Objective**: Allow users to **create a new Waypoint**.
+
+**Features to Implement:**
+- **Input Fields**: Fields for **City name**, **Dates of travel**, and **Optional note**.
+- **Submit Button**: A button to submit the new waypoint.
+- **Save to Mock Data**: For now, save the new waypoint to a mock data array and display it on the **FeedScreen**.
+
+**UI Design Notes:**
+- The UI should feel playful and adventurous.
+- Use **React Native Paper** TextInput, DatePicker, and Button components.
+
+**Form Fields:**
+- **City Name** (TextInput)
+- **Dates of Travel** (Date Range Picker or two TextInputs)
+- **Notes** (Optional TextInput)
+
+---
+
+## **4️⃣ Reusable Components**
+
+### **📦 Components to Create**
+
+**UserCard**
+- File: `/components/UserCard.tsx`
+- Usage: Used in the **HomeScreen** (Who’s in Your City?)
+- Props: `{ name, status, avatar }`
+
+**StatusCard**
+- File: `/components/StatusCard.tsx`
+- Usage: Used in the **FeedScreen** (Status Feed)
+- Props: `{ name, status, avatar, date }`
+
+**WaypointForm**
+- File: `/components/WaypointForm.tsx`
+- Usage: Used in the **WaypointCreationScreen**
+- Props: None
+
+---
+
+## **5️⃣ UI/UX Design Notes**
+
+1. **Friendly Adventure Vibe**
+   - Use soft colors and playful design elements.
+   - Use rounded cards, buttons, and avatars to create a friendly and welcoming look.
+
+2. **Use Supported UI Library**
+   - Use **React Native Elements** or **React Native Paper** for all inputs, cards, and buttons.
+
+3. **Adventurous Style**
+   - Subtle adventure-themed design.
+   - Example: Airbnb’s fun, friendly, and playful design with clear call-to-action buttons.
+
+4. **Fonts and Colors**
+   - Use friendly, legible fonts (Google Fonts like "Inter" or "Nunito").
+   - Use soft, warm colors like teal, blue, and light green to give a "travel" vibe.
+
+---

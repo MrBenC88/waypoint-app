@@ -1,20 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useState } from "react";
+import { Text } from "react-native";
+import { NavigationContainer } from "@react-navigation/native"; 
+import StackNavigator from "./navigation/StackNavigator";
+import { addTestUser, fetchTestUsers } from "./services/testFirebase";
 
 export default function App() {
+  const [testUserName, setTestUserName] = useState<string>("");
+
+  // useEffect(() => {
+  //   const testFirebase = async () => {
+  //     await addTestUser();
+  //     const users = await fetchTestUsers();
+  //     console.log("Fetched Users: ", users);
+
+  //     if (users) {
+  //       console.log("User: ", (users[0].name).toString());
+  //       setTestUserName(users[0].name);
+  //     }
+  //   };
+  //   testFirebase();
+  // }, []);
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <StackNavigator />
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
