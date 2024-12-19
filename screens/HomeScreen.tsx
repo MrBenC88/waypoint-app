@@ -68,9 +68,10 @@ const HomeScreen = () => {
   const { colors } = useTheme();
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
-      <View style={styles.searchContainer}>
+      {/* Search */}
+      {/* <View style={styles.searchContainer}>
         <TextInput
-          placeholder="Search by friend, city, or event.."
+          placeholder="Search a friend, city, or event.."
           mode="outlined"
           style={styles.searchInput}
           theme={{ colors: { placeholder: colors.onSurfaceVariant } }}
@@ -82,7 +83,7 @@ const HomeScreen = () => {
           style={styles.filterIcon}
           iconColor={colors.primary}
         />
-      </View>
+      </View> */}
 
       <View style={styles.waypointSection}>
         <Text
@@ -154,6 +155,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   waypointSection: {
+    marginTop: 30,
     flexDirection: "row",
     alignItems: "center",
     marginVertical: 8,

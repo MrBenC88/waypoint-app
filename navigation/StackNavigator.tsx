@@ -4,6 +4,7 @@ import LoginScreen from "../screens/LoginScreen";
 import RegisterScreen from "../screens/RegisterScreen";
 import TabNavigator from "./TabNavigator";
 import { IconButton } from "react-native-paper";
+import ExploreScreen from "../screens/ExploreScreen";
 
 const Stack = createStackNavigator();
 
@@ -17,6 +18,7 @@ const StackNavigator = () => (
     <Stack.Screen name="LoginScreen" component={LoginScreen} />
     <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
     <Stack.Screen name="MainApp" component={TabNavigator} />
+    <Stack.Screen name="ExploreScreen" component={ExploreScreen} />
   </Stack.Navigator>
 );
 

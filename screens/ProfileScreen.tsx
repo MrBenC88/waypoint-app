@@ -61,7 +61,7 @@ const ProfileScreen = () => {
       {/* Trips Section */}
       <View style={styles.section}>
         <Text style={[styles.sectionTitle, { color: colors.onBackground }]}>
-          🗓️ My Trips
+          🗓️ My Trips (2)
         </Text>
 
         <View style={styles.tripItem}>
@@ -93,14 +93,14 @@ const ProfileScreen = () => {
       {/* Friends Section */}
       <View style={styles.section}>
         <Text style={[styles.sectionTitle, { color: colors.onBackground }]}>
-          👥 My Friends
+          👥 Friends (5)
         </Text>
         <Button
           mode="outlined"
           style={styles.viewFriendsButton}
           onPress={() => console.log("View Friends")}
         >
-          View My Friends
+          View Friends
         </Button>
       </View>
 

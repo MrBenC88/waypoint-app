@@ -4,7 +4,7 @@ import { TouchableOpacity, View, StyleSheet } from "react-native";
 import { useTheme } from "react-native-paper";
 import HomeScreen from "../screens/HomeScreen";
 import ProfileScreen from "../screens/ProfileScreen";
-import FeedScreen from "../screens/FeedScreen";
+import ExploreScreen from "../screens/ExploreScreen";
 import Icon from "react-native-vector-icons/Feather"; // Feather Icons
 
 const Tab = createBottomTabNavigator();
@@ -31,7 +31,7 @@ const TabNavigator = () => {
         tabBarIcon: ({ color, size }) => {
           let iconName;
           if (route.name === "Home") iconName = "home";
-          else if (route.name === "Feed") iconName = "rss";
+          else if (route.name === "Explore") iconName = "search";
           else if (route.name === "Profile") iconName = "user";
           return <Icon name={iconName} size={22} color={color} />;
         },
@@ -50,7 +50,7 @@ const TabNavigator = () => {
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Feed" component={FeedScreen} />
+      <Tab.Screen name="Explore" component={ExploreScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   );
