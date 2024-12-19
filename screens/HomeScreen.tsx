@@ -18,7 +18,7 @@ const MainContentFeed = () => {
   );
 };
 
-// **Main HomeScreen Component**
+// Main HomeScreen Component
 const HomeScreen = () => {
   const { colors } = useTheme();
   return (
@@ -35,22 +35,6 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 20,
   },
-
-  searchContainer: {
-    marginTop: 30,
-    marginBottom: 10,
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  searchInput: {
-    flex: 1,
-    borderRadius: 20,
-    height: 40,
-  },
-  filterIcon: {
-    marginLeft: 10,
-  },
-
   scrollContainer: {
     paddingHorizontal: 0,
   },
