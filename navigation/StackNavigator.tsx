@@ -3,6 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import LoginScreen from "../screens/LoginScreen";
 import RegisterScreen from "../screens/RegisterScreen";
 import TabNavigator from "./TabNavigator";
+import { IconButton } from "react-native-paper";
 
 const Stack = createStackNavigator();
 
@@ -10,7 +11,10 @@ const StackNavigator = () => (
   <Stack.Navigator
     initialRouteName="MainApp" // should be LoginScreen, change this for skipping
     screenOptions={{
-      headerShown: false, // Hide headers for stack screens
+      headerShown: false, // Show headers for stack screens
+      headerStyle: { backgroundColor: "#4CAF50" }, // Background color for the header
+      headerTintColor: "#fff", // Color of the title and icons
+      headerTitleStyle: { fontWeight: "bold" }, // Title font style
     }}
   >
     <Stack.Screen name="LoginScreen" component={LoginScreen} />
