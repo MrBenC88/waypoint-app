@@ -5,6 +5,7 @@ import HomeScreen from "../screens/HomeScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 import ExploreScreen from "../screens/ExploreScreen";
 import Icon from "react-native-vector-icons/Feather"; // Feather Icons
+import DirectMessageScreen from "../screens/DirectMessageScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -25,6 +26,9 @@ const TabNavigator = () => {
             case "Explore":
               iconName = "search";
               break;
+            case "DM":
+              iconName = "message-square";
+              break;
             case "Profile":
               iconName = "user";
               break;
@@ -37,17 +41,18 @@ const TabNavigator = () => {
         tabBarInactiveTintColor: colors.onSurface,
         tabBarStyle: {
           backgroundColor: colors.surface,
-          height: 50, // Ensures better touch targets for mobile devices
+          height: 43, // Ensures better touch targets for mobile devices
           shadowColor: colors.shadow,
           shadowOffset: { width: 0, height: -2 },
           shadowOpacity: 0.1,
           shadowRadius: 4,
-          elevation: 2, // Improved elevation for better shadow on Android
+          elevation: 6, // Improved elevation for better shadow on Android
         },
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Explore" component={ExploreScreen} />
+      <Tab.Screen name="DM" component={DirectMessageScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   );
