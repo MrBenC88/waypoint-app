@@ -91,3 +91,15 @@ export const MOCK_STATUSES = [
     date: "Dec 12, 2024",
   },
 ];
+
+export const MOCK_TRIPS = [
+  { id: "1", city: "Toronto", date: "Dec 20-25, 2024" },
+  { id: "2", city: "New York", date: "Jan 2-10, 2025" },
+  { id: "3", city: "Tokyo", date: "Feb 10-18, 2025" },
+];
+
+export const MOCK_CITIES = [
+  { id: "1", city: "Vancouver", status: "5 friends here" },
+  { id: "2", city: "Los Angeles", status: "2 friends here" },
+  { id: "3", city: "Singapore", status: "1 friend here" },
+];
