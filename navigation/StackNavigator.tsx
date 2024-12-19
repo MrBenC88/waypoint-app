@@ -8,7 +8,7 @@ const Stack = createStackNavigator();
 
 const StackNavigator = () => (
   <Stack.Navigator
-    initialRouteName="LoginScreen"
+    initialRouteName="MainApp" // should be LoginScreen, change this for skipping
     screenOptions={{
       headerShown: false, // Hide headers for stack screens
     }}

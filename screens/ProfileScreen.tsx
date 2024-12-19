@@ -1,23 +1,32 @@
 import React from "react";
-import { View, Button } from "react-native";
-import { signOut } from "firebase/auth";
-import { auth } from "../services/firebase";
+import { View, StyleSheet } from "react-native";
+import { Text, Button, Avatar } from "react-native-paper";
 
-const ProfileScreen = ({ navigation }) => {
-  const handleSignOut = async () => {
-    try {
-      await signOut(auth);
-      navigation.replace("LoginScreen"); // Send user back to LoginScreen
-    } catch (error) {
-      console.error("Error signing out:", error);
-    }
+const ProfileScreen = () => {
+  const handleSignOut = () => {
+    console.log("User signed out");
   };
 
   return (
-    <View style={{ padding: 20, justifyContent: "center", flex: 1 }}>
-      <Button title="Sign Out" onPress={handleSignOut} />
+    <View style={styles.container}>
+      <Avatar.Image
+        source={{ uri: "https://example.com/avatar.png" }}
+        size={100}
+      />
+      <Text style={styles.name}>John Doe</Text>
+      <Text style={styles.bio}>Adventurer & Traveler</Text>
+      <Button mode="contained" onPress={handleSignOut} style={styles.button}>
+        Sign Out
+      </Button>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: { flex: 1, alignItems: "center", justifyContent: "center" },
+  name: { fontSize: 24, marginVertical: 10 },
+  bio: { fontSize: 16, color: "#666", marginBottom: 20 },
+  button: { marginTop: 20 },
+});
 
 export default ProfileScreen;

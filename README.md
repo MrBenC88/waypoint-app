@@ -7,3 +7,4 @@
 ## Running on Android
 
 - npx expo start --clear
+- create .env file and paste in firebase credentials
