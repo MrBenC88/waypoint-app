@@ -34,16 +34,20 @@ const FriendStory = ({ friend }) => (
 // **Status Update Card** Component for the Feed
 const StatusCard = ({ status }) => (
   <Card style={styles.statusCard}>
-    <Card.Title
-      titleStyle={styles.cardTitle}
-      subtitleStyle={styles.cardSubtitle}
-      title={status.name}
-      subtitle={status.date}
-      left={() => <Avatar.Image source={{ uri: status.avatar }} size={32} />}
-    />
-    <Card.Content style={styles.cardContent}>
+    <View style={styles.cardHeader}>
+      <Avatar.Image
+        source={{ uri: status.avatar }}
+        size={28}
+        style={styles.cardAvatar}
+      />
+      <View style={styles.cardHeaderTextContainer}>
+        <Text style={styles.cardTitle}>{status.name}</Text>
+        <Text style={styles.cardSubtitle}>{status.date}</Text>
+      </View>
+    </View>
+    <View style={styles.cardContent}>
       <Text style={styles.cardStatusText}>{status.status}</Text>
-    </Card.Content>
+    </View>
   </Card>
 );
 
@@ -54,7 +58,7 @@ const HomeScreen = () => {
       {/* Waypoint Search Bar */}
       <View style={styles.searchContainer}>
         <TextInput
-          placeholder="Where to next?"
+          placeholder="Search by friend, city, or event.."
           mode="outlined"
           style={styles.searchInput}
         />
@@ -185,29 +189,41 @@ const styles = StyleSheet.create({
     color: "#333",
   },
   statusCard: {
-    marginBottom: 10,
-    borderRadius: 8,
-    padding: 10,
+    marginBottom: 6,
+    borderRadius: 6,
+    padding: 8, // Reduced padding for compactness
     backgroundColor: "#FFF",
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
+    shadowOpacity: 0.08,
+    shadowRadius: 2,
+    elevation: 1,
+  },
+  cardHeader: {
+    flexDirection: "row", // Row layout for avatar, name, and date
+    alignItems: "center", // Center vertically
+    marginBottom: 4, // Space between header and status
+  },
+  cardAvatar: {
+    marginRight: 10, // Space between avatar and text
+  },
+  cardHeaderTextContainer: {
+    flexDirection: "row", // Row layout for name and date
+    alignItems: "center", // Align them vertically
+    justifyContent: "space-between", // Push the name and date apart
+    flex: 1, // Ensures the text occupies remaining space
   },
   cardTitle: {
-    fontSize: 14,
     fontWeight: "bold",
+    marginRight: 8, // Space between name and date
   },
   cardSubtitle: {
-    fontSize: 12,
     color: "#666",
   },
   cardContent: {
-    paddingVertical: 4,
+    paddingVertical: 4, // Padding around the status message
   },
   cardStatusText: {
-    fontSize: 12,
     color: "#333",
   },
   scrollContainer: {
