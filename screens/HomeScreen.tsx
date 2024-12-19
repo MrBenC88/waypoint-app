@@ -35,12 +35,14 @@ const FriendStory = ({ friend }) => (
 const StatusCard = ({ status }) => (
   <Card style={styles.statusCard}>
     <Card.Title
+      titleStyle={styles.cardTitle}
+      subtitleStyle={styles.cardSubtitle}
       title={status.name}
       subtitle={status.date}
-      left={() => <Avatar.Image source={{ uri: status.avatar }} size={40} />}
+      left={() => <Avatar.Image source={{ uri: status.avatar }} size={32} />}
     />
-    <Card.Content>
-      <Text>{status.status}</Text>
+    <Card.Content style={styles.cardContent}>
+      <Text style={styles.cardStatusText}>{status.status}</Text>
     </Card.Content>
   </Card>
 );
@@ -76,34 +78,35 @@ const HomeScreen = () => {
         </Chip>
       </View>
 
-      {/* Section 1: Who’s in Your City (Story-like experience) */}
-      <View style={styles.sectionHeaderContainer}>
-        <Text style={styles.title}>Who's in Your City?</Text>
-        <IconButton
-          icon="chevron-right"
-          size={24}
-          onPress={() => console.log("View Full List of Who’s in Your City")}
-        />
-      </View>
-
       <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.horizontalScroll}
-        style={{ paddingBottom: 15 }}
+        contentContainerStyle={styles.scrollContainer}
+        showsVerticalScrollIndicator={false}
       >
-        {MOCK_FRIENDS.map((friend) => (
-          <FriendStory key={friend.id} friend={friend} />
+        <View style={styles.sectionHeaderContainer}>
+          <Text style={styles.title}>Who's in Your City?</Text>
+          <IconButton
+            icon="chevron-right"
+            size={24}
+            onPress={() => console.log("View Full List of Who’s in Your City")}
+          />
+        </View>
+
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.horizontalScroll}
+        >
+          {MOCK_FRIENDS.map((friend) => (
+            <FriendStory key={friend.id} friend={friend} />
+          ))}
+        </ScrollView>
+
+        <Text style={styles.title}>Status Feed</Text>
+
+        {MOCK_STATUSES.map((status) => (
+          <StatusCard key={status.id} status={status} />
         ))}
       </ScrollView>
-
-      {/* Section 2: Feed of Status Updates */}
-      <Text style={styles.title}>Status Feed</Text>
-      <FlatList
-        data={MOCK_STATUSES}
-        renderItem={({ item }) => <StatusCard status={item} />}
-        keyExtractor={(item) => item.id}
-      />
     </View>
   );
 };
@@ -182,9 +185,33 @@ const styles = StyleSheet.create({
     color: "#333",
   },
   statusCard: {
-    marginBottom: 15,
-    borderRadius: 10,
-    overflow: "hidden",
+    marginBottom: 10,
+    borderRadius: 8,
+    padding: 10,
+    backgroundColor: "#FFF",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  cardTitle: {
+    fontSize: 14,
+    fontWeight: "bold",
+  },
+  cardSubtitle: {
+    fontSize: 12,
+    color: "#666",
+  },
+  cardContent: {
+    paddingVertical: 4,
+  },
+  cardStatusText: {
+    fontSize: 12,
+    color: "#333",
+  },
+  scrollContainer: {
+    paddingHorizontal: 0,
   },
 });
 
