@@ -4,8 +4,8 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../services/firebase";
 
 const LoginScreen = ({ navigation }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("test123@gmail.com");
+  const [password, setPassword] = useState("123456");
   const [error, setError] = useState("");
 
   const handleLogin = async () => {

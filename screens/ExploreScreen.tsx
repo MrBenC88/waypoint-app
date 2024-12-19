@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { View, StyleSheet, FlatList, TouchableOpacity } from "react-native";
 import {
@@ -48,6 +49,7 @@ const ExploreScreen = () => {
   const { colors } = useTheme();
   const [searchQuery, setSearchQuery] = useState("");
   const [activeTab, setActiveTab] = useState("Friends"); // Options: 'Friends', 'Trips', 'Cities'
+  const navigation = useNavigation();
 
   // Filter logic for different tabs
   const getFilteredData = () => {
@@ -77,6 +79,9 @@ const ExploreScreen = () => {
             styles.listItem,
             { borderBottomColor: colors.outlineVariant },
           ]}
+          onPress={() =>
+            navigation.navigate("FriendProfileScreen", { user: item })
+          }
         >
           <Avatar.Image
             source={{ uri: item.avatar }}

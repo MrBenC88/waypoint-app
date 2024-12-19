@@ -5,6 +5,7 @@ import RegisterScreen from "../screens/RegisterScreen";
 import TabNavigator from "./TabNavigator";
 import { IconButton } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
+import FriendProfileScreen from "../screens/FriendProfileScreen";
 
 const Stack = createStackNavigator();
 
@@ -22,10 +23,7 @@ const StackNavigator = () => (
       options={({ navigation }) => ({
         headerShown: true,
         headerLeft: () => (
-          <IconButton 
-            icon="arrow-left" 
-            onPress={() => navigation.goBack()} 
-          />
+          <IconButton icon="arrow-left" onPress={() => navigation.goBack()} />
         ),
         title: "Login", // Set the title of the screen
       })}
@@ -38,10 +36,7 @@ const StackNavigator = () => (
       options={({ navigation }) => ({
         headerShown: true,
         headerLeft: () => (
-          <IconButton 
-            icon="arrow-left" 
-            onPress={() => navigation.goBack()} 
-          />
+          <IconButton icon="arrow-left" onPress={() => navigation.goBack()} />
         ),
         title: "Register", // Set the title of the screen
       })}
@@ -53,6 +48,7 @@ const StackNavigator = () => (
       component={TabNavigator}
       options={{ headerShown: false }}
     />
+    <Stack.Screen name="FriendProfileScreen" component={FriendProfileScreen} />
   </Stack.Navigator>
 );
 

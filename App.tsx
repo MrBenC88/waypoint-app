@@ -100,6 +100,14 @@ const theme = {
     shadow: "rgba(0, 0, 0, 0.2)", // Shadow color
     scrim: "rgba(0, 0, 0, 0.4)", // Scrim for modals, etc.
     backdrop: "rgba(0, 0, 0, 0.5)", // Backdrop for dialogs
+    elevation: {
+      level0: "transparent",
+      level1: "rgba(0,0,0,0.05)",
+      level2: "rgba(0,0,0,0.08)",
+      level3: "rgba(0,0,0,0.12)", // This is the key that was missing
+      level4: "rgba(0,0,0,0.15)",
+      level5: "rgba(0,0,0,0.20)",
+    },
   },
 
   // sunset social
