@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import { View, StyleSheet, FlatList, TouchableOpacity } from "react-native";
-import { Text, TextInput, IconButton, Chip, Avatar } from "react-native-paper";
+import {
+  Text,
+  TextInput,
+  IconButton,
+  Chip,
+  Avatar,
+  Button,
+} from "react-native-paper";
 import { useTheme } from "react-native-paper";
 
 // Mock data
@@ -65,32 +72,65 @@ const ExploreScreen = () => {
   const renderItem = ({ item }) => {
     if (activeTab === "Friends") {
       return (
-        <TouchableOpacity style={styles.listItem}>
+        <TouchableOpacity
+          style={[
+            styles.listItem,
+            { borderBottomColor: colors.outlineVariant },
+          ]}
+        >
           <Avatar.Image
             source={{ uri: item.avatar }}
             size={40}
             style={styles.avatar}
           />
           <View style={styles.textContainer}>
-            <Text style={styles.itemTitle}>{item.name}</Text>
-            <Text style={styles.itemSubtitle}>{item.status}</Text>
+            <Text style={[styles.itemTitle, { color: colors.onSurface }]}>
+              {item.name}
+            </Text>
+            <Text
+              style={[styles.itemSubtitle, { color: colors.onSurfaceVariant }]}
+            >
+              {item.status}
+            </Text>
           </View>
         </TouchableOpacity>
       );
     }
     if (activeTab === "Trips") {
       return (
-        <View style={styles.listItem}>
-          <Text style={styles.itemTitle}>{item.city}</Text>
-          <Text style={styles.itemSubtitle}>{item.date}</Text>
+        <View
+          style={[
+            styles.listItem,
+            { borderBottomColor: colors.outlineVariant },
+          ]}
+        >
+          <Text style={[styles.itemTitle, { color: colors.onSurface }]}>
+            {item.city}
+          </Text>
+          <Text
+            style={[styles.itemSubtitle, { color: colors.onSurfaceVariant }]}
+          >
+            {item.date}
+          </Text>
         </View>
       );
     }
     if (activeTab === "Cities") {
       return (
-        <View style={styles.listItem}>
-          <Text style={styles.itemTitle}>{item.city}</Text>
-          <Text style={styles.itemSubtitle}>{item.status}</Text>
+        <View
+          style={[
+            styles.listItem,
+            { borderBottomColor: colors.outlineVariant },
+          ]}
+        >
+          <Text style={[styles.itemTitle, { color: colors.onSurface }]}>
+            {item.city}
+          </Text>
+          <Text
+            style={[styles.itemSubtitle, { color: colors.onSurfaceVariant }]}
+          >
+            {item.status}
+          </Text>
         </View>
       );
     }
@@ -146,6 +186,11 @@ const ExploreScreen = () => {
         keyExtractor={(item) => item.id}
         style={styles.list}
         contentContainerStyle={{ paddingBottom: 100 }}
+        ListEmptyComponent={() => (
+          <Text style={{ textAlign: "center", color: colors.onSurfaceVariant }}>
+            No results found
+          </Text>
+        )}
       />
     </View>
   );
@@ -186,7 +231,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingVertical: 12,
     borderBottomWidth: 1,
-    borderBottomColor: "#E0E0E0",
   },
   avatar: {
     marginRight: 12,
@@ -198,7 +242,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   itemSubtitle: {
-    color: "#666",
+    fontSize: 16,
   },
 });
 
