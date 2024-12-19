@@ -127,7 +127,7 @@ const HomeScreen = () => {
         </ScrollView>
 
         <Text style={[styles.title, { color: colors.onBackground }]}>
-          Status Feed
+          Status Updates
         </Text>
 
         {MOCK_STATUSES.map((status) => (
