@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  View,
-  StyleSheet,
-  ScrollView,
-  TouchableOpacity,
-} from "react-native";
+import { View, StyleSheet, ScrollView, TouchableOpacity } from "react-native";
 import {
   Text,
   Avatar,
@@ -234,7 +229,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   cardHeaderTextContainer: {
-    flexDirection: "row", 
+    flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
     flex: 1,

@@ -1,32 +1,193 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
-import { Text, Button, Avatar } from "react-native-paper";
+import { View, StyleSheet, ScrollView } from "react-native";
+import {
+  Text,
+  Avatar,
+  Button,
+  IconButton,
+  Divider,
+  Chip,
+  useTheme,
+} from "react-native-paper";
 
 const ProfileScreen = () => {
-  const handleSignOut = () => {
-    console.log("User signed out");
-  };
+  const { colors } = useTheme();
 
   return (
-    <View style={styles.container}>
-      <Avatar.Image
-        source={{ uri: "https://example.com/avatar.png" }}
-        size={100}
-      />
-      <Text style={styles.name}>John Doe</Text>
-      <Text style={styles.bio}>Adventurer & Traveler</Text>
-      <Button mode="contained" onPress={handleSignOut} style={styles.button}>
-        Sign Out
-      </Button>
-    </View>
+    <ScrollView
+      style={[styles.container, { backgroundColor: colors.background }]}
+      contentContainerStyle={styles.scrollContainer}
+    >
+      {/* Header Section */}
+      <View style={styles.headerSection}>
+        <Avatar.Image
+          size={80}
+          source={{ uri: "https://example.com/avatar.png" }}
+        />
+        <View style={styles.userInfo}>
+          <Text style={[styles.userName, { color: colors.onBackground }]}>
+            Benjamin Cheung
+          </Text>
+          <Text style={[styles.userBio, { color: colors.onSurfaceVariant }]}>
+            "I love meeting new people while traveling!"
+          </Text>
+        </View>
+        <IconButton
+          icon="pencil"
+          size={20}
+          iconColor={colors.primary}
+          onPress={() => console.log("Edit Profile")}
+        />
+      </View>
+
+      <Divider style={{ marginVertical: 10 }} />
+
+      {/* Waypoint Section */}
+      <View style={styles.waypointSection}>
+        <Text style={[styles.sectionTitle, { color: colors.onBackground }]}>
+          My Waypoint:
+        </Text>
+        <Chip
+          style={[styles.waypointChip, { backgroundColor: colors.primary }]}
+          textStyle={[styles.waypointChipText, { color: colors.onPrimary }]}
+          onPress={() => console.log("Change Waypoint")}
+        >
+          Vancouver, BC, Canada
+        </Chip>
+      </View>
+
+      <Divider style={{ marginVertical: 10 }} />
+
+      {/* Trips Section */}
+      <View style={styles.section}>
+        <Text style={[styles.sectionTitle, { color: colors.onBackground }]}>
+          🗓️ My Trips
+        </Text>
+
+        <View style={styles.tripItem}>
+          <Text style={{ color: colors.onBackground }}>
+            📍 New York City, NY
+          </Text>
+          <Text style={{ color: colors.onSurfaceVariant }}>
+            Dec 20 - Dec 25
+          </Text>
+        </View>
+
+        <View style={styles.tripItem}>
+          <Text style={{ color: colors.onBackground }}>📍 Tokyo, Japan</Text>
+          <Text style={{ color: colors.onSurfaceVariant }}>Upcoming</Text>
+        </View>
+
+        <Button
+          icon="plus"
+          mode="outlined"
+          style={styles.addTripButton}
+          onPress={() => console.log("Add New Trip")}
+        >
+          Add New Trip
+        </Button>
+      </View>
+
+      <Divider style={{ marginVertical: 10 }} />
+
+      {/* Friends Section */}
+      <View style={styles.section}>
+        <Text style={[styles.sectionTitle, { color: colors.onBackground }]}>
+          👥 My Friends
+        </Text>
+        <Button
+          mode="outlined"
+          style={styles.viewFriendsButton}
+          onPress={() => console.log("View Friends")}
+        >
+          View My Friends
+        </Button>
+      </View>
+
+      <Divider style={{ marginVertical: 10 }} />
+
+      {/* Settings Section */}
+      <View style={styles.section}>
+        <Button
+          mode="outlined"
+          style={styles.settingsButton}
+          onPress={() => console.log("Go to Settings")}
+        >
+          ⚙️ Account Settings
+        </Button>
+        <Button
+          mode="text"
+          onPress={() => console.log("Logout")}
+          buttonColor={colors.secondaryContainer}
+        >
+          🚪 Logout
+        </Button>
+      </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, alignItems: "center", justifyContent: "center" },
-  name: { fontSize: 24, marginVertical: 10 },
-  bio: { fontSize: 16, color: "#666", marginBottom: 20 },
-  button: { marginTop: 20 },
+  container: {
+    flex: 1,
+    marginTop: 10,
+  },
+  scrollContainer: {
+    padding: 20,
+  },
+  headerSection: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  userInfo: {
+    flex: 1,
+    marginLeft: 10,
+  },
+  userName: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  userBio: {
+    fontSize: 14,
+    marginTop: 4,
+  },
+  waypointSection: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  section: {
+    marginBottom: 20,
+  },
+  sectionTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 8,
+  },
+  waypointChip: {
+    borderRadius: 20,
+    height: 30,
+    paddingHorizontal: 10,
+    justifyContent: "center",
+  },
+  waypointChipText: {
+    fontWeight: "bold",
+    fontSize: 16,
+  },
+  tripItem: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingVertical: 8,
+  },
+  addTripButton: {
+    marginTop: 10,
+  },
+  viewFriendsButton: {
+    marginTop: 10,
+  },
+  settingsButton: {
+    marginBottom: 10,
+  },
 });
 
 export default ProfileScreen;
