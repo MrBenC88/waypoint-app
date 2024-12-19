@@ -6,7 +6,7 @@ import StatusCardList from "../components/StatusCardList";
 import FloatingComposeButton from "../components/FloatingComposeButton";
 import CurrentWaypoint from "../components/CurrentWaypoint";
 
-const MainContentFeed = () => {
+const ScrollableContentFeed = () => {
   return (
     <ScrollView
       contentContainerStyle={styles.scrollContainer}
@@ -24,7 +24,7 @@ const HomeScreen = () => {
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       <CurrentWaypoint />
-      <MainContentFeed />
+      <ScrollableContentFeed />
       <FloatingComposeButton />
     </View>
   );
