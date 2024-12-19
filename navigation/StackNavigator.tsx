@@ -20,13 +20,13 @@ const StackNavigator = () => (
     <Stack.Screen
       name="LoginScreen"
       component={LoginScreen}
-      options={({ navigation }) => ({
-        headerShown: true,
-        headerLeft: () => (
-          <IconButton icon="arrow-left" onPress={() => navigation.goBack()} />
-        ),
-        title: "Login", // Set the title of the screen
-      })}
+      // options={({ navigation }) => ({
+      //   headerShown: true,
+      //   headerLeft: () => (
+      //     <IconButton icon="arrow-left" onPress={() => navigation.goBack()} />
+      //   ),
+      //   title: "Login", // Set the title of the screen
+      // })}
     />
 
     {/* Register Screen */}
