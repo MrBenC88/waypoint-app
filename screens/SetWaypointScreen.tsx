@@ -38,8 +38,8 @@ const SetWaypointScreen = ({ navigation }) => {
       const location = await Location.getCurrentPositionAsync({});
       const geocode = await Location.reverseGeocodeAsync(location.coords);
       if (geocode && geocode.length > 0) {
-        const { city, region, country } = geocode[0];
-        const formattedCity = `${city}, ${region}, ${country}`;
+        const { city, country } = geocode[0];
+        const formattedCity = `${city}, ${country}`;
         setCity(formattedCity);
       }
     } catch (error) {
