@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from "react";
-import { View, StyleSheet, FlatList, Alert } from "react-native";
+import { View, StyleSheet, FlatList, Alert, Animated } from "react-native";
 import { Text, Avatar, useTheme, Appbar, Snackbar } from "react-native-paper";
+import { RectButton, Swipeable } from "react-native-gesture-handler";
 import { AvailabilityStatusEmojis } from "../data/enums";
 import { MOCK_NOTIFICATIONS } from "../data/mockData";
 
@@ -17,19 +18,14 @@ const generateNotificationTitle = ({
       return `${
         AvailabilityStatusEmojis[status] || "🔔"
       } ${name} is ${status}!`;
-
     case "location":
       return `📍 ${name} just arrived in ${city}!`;
-
     case "trip":
       return `✈️ ${name} added a trip to ${city}!`;
-
     case "host":
       return `🛋️ ${name} is ${hostStatus}!`;
-
     case "leaving":
       return `✈️ ${name} is leaving ${city} soon!`;
-
     default:
       return `🔔 ${name} updated their status!`;
   }
@@ -75,24 +71,51 @@ const NotificationScreen = () => {
     ]);
   }, []);
 
+  const renderRightActions = (progress, dragX, id) => {
+    const scale = dragX.interpolate({
+      inputRange: [-100, 0],
+      outputRange: [1, 0],
+      extrapolate: "clamp",
+    });
+
+    return (
+      <RectButton
+        style={styles.rightAction}
+        onPress={() => handleDismissNotification(id)}
+      >
+        <Animated.Text style={[styles.actionText, { transform: [{ scale }] }]}>
+          Dismiss
+        </Animated.Text>
+      </RectButton>
+    );
+  };
+
   const renderNotification = ({ item }) => {
     const title = generateNotificationTitle(item);
 
     return (
-      <View
-        style={[
-          styles.notificationContainer,
-          { backgroundColor: colors.surface },
-        ]}
+      <Swipeable
+        renderRightActions={(progress, dragX) =>
+          renderRightActions(progress, dragX, item.id)
+        }
       >
-        <Avatar.Image source={{ uri: item.avatar }} size={40} />
-        <View style={styles.notificationContent}>
-          <Text style={[styles.notificationTitle, { color: colors.onSurface }]}>
-            {title}
-          </Text>
-          <Text style={styles.notificationTime}>{item.date}</Text>
+        <View
+          style={[
+            styles.notificationContainer,
+            { backgroundColor: colors.surface },
+          ]}
+        >
+          <Avatar.Image source={{ uri: item.avatar }} size={40} />
+          <View style={styles.notificationContent}>
+            <Text
+              style={[styles.notificationTitle, { color: colors.onSurface }]}
+            >
+              {title}
+            </Text>
+            <Text style={styles.notificationTime}>{item.date}</Text>
+          </View>
         </View>
-      </View>
+      </Swipeable>
     );
   };
 
@@ -152,6 +175,19 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: "#666",
     marginTop: 4,
+  },
+  rightAction: {
+    justifyContent: "center",
+    alignItems: "center",
+    width: 80,
+    backgroundColor: "#f44336",
+    borderRadius: 4,
+    marginVertical: 8,
+  },
+  actionText: {
+    color: "#fff",
+    fontWeight: "bold",
+    fontSize: 14,
   },
 });
 

@@ -5,6 +5,7 @@ import StackNavigator from "./navigation/StackNavigator";
 import { Provider as PaperProvider, DefaultTheme } from "react-native-paper";
 import { addTestUser, fetchTestUsers } from "./services/testFirebase";
 import { forestGreen as activeTheme } from "./themes/themes";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export default function App() {
   const [testUserName, setTestUserName] = useState<string>("");
@@ -25,9 +26,11 @@ export default function App() {
 
   return (
     <PaperProvider theme={activeTheme}>
-      <NavigationContainer>
-        <StackNavigator />
-      </NavigationContainer>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <NavigationContainer>
+          <StackNavigator />
+        </NavigationContainer>{" "}
+      </GestureHandlerRootView>
     </PaperProvider>
   );
 }
