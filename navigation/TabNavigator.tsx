@@ -6,6 +6,7 @@ import ProfileScreen from "../screens/ProfileScreen";
 import ExploreScreen from "../screens/ExploreScreen";
 import Icon from "react-native-vector-icons/Feather"; // Feather Icons
 import DirectMessageScreen from "../screens/DirectMessageScreen";
+import NotificationsScreen from "../screens/NotificationsScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -32,6 +33,9 @@ const TabNavigator = () => {
             case "Profile":
               iconName = "user";
               break;
+            case "Notifications":
+              iconName = "bell";
+              break;
             default:
               iconName = "circle";
           }
@@ -54,6 +58,7 @@ const TabNavigator = () => {
       <Tab.Screen name="Explore" component={ExploreScreen} />
       <Tab.Screen name="DM" component={DirectMessageScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
+      <Tab.Screen name="Notifications" component={NotificationsScreen} />
     </Tab.Navigator>
   );
 };

@@ -1,6 +1,135 @@
 import { AvailabilityStatus, PurposeOfVisit, HostStatus } from "./enums";
 import { Friend, StatusFeedItem, StatusType, Trip, CityStatus } from "./types";
 
+// **Notifications Section Data**
+export const MOCK_NOTIFICATIONS: StatusFeedItem[] = [
+  // **Availability Changes**
+  {
+    id: "1",
+    name: "Alice",
+    username: "alice_wanderlust",
+    avatar: "https://example.com/avatar1.png",
+    type: StatusType.Availability,
+    status: AvailabilityStatus.AvailableToMeetUp,
+    city: "Toronto",
+    date: "Dec 19, 2024",
+  },
+  {
+    id: "2",
+    name: "Bob",
+    username: "bobthetraveler",
+    avatar: "https://example.com/avatar2.png",
+    type: StatusType.Availability,
+    status: AvailabilityStatus.LookingForRecommendations,
+    city: "New York",
+    date: "Dec 18, 2024",
+  },
+
+  // **Purpose of Visit Changes**
+  {
+    id: "3",
+    name: "Charlie",
+    username: "charlie_justchillin",
+    avatar: "https://example.com/avatar3.png",
+    type: StatusType.Purpose,
+    purpose: PurposeOfVisit.ExploringCity,
+    city: "Paris",
+    date: "Dec 17, 2024",
+  },
+  {
+    id: "4",
+    name: "Daisy",
+    username: "daisy_globetrotter",
+    avatar: "https://example.com/avatar4.png",
+    type: StatusType.Purpose,
+    purpose: PurposeOfVisit.Conference,
+    city: "London",
+    date: "Dec 16, 2024",
+  },
+
+  // **Host Status Changes**
+  {
+    id: "5",
+    name: "Eli",
+    username: "eli_nomad",
+    avatar: "https://example.com/avatar5.png",
+    type: StatusType.Host,
+    hostStatus: HostStatus.OpenToHost,
+    city: "Tokyo",
+    date: "Dec 15, 2024",
+  },
+  {
+    id: "6",
+    name: "Frank",
+    username: "frank_adventurer",
+    avatar: "https://example.com/avatar6.png",
+    type: StatusType.Host,
+    hostStatus: HostStatus.NotHosting,
+    city: "Berlin",
+    date: "Dec 14, 2024",
+  },
+
+  // **Location Changes**
+  {
+    id: "7",
+    name: "Grace",
+    username: "grace_explorer",
+    avatar: "https://example.com/avatar7.png",
+    type: StatusType.Location,
+    city: "Madrid",
+    date: "Dec 13, 2024",
+  },
+  {
+    id: "8",
+    name: "Hannah",
+    username: "hannah_explorer",
+    avatar: "https://example.com/avatar8.png",
+    type: StatusType.Location,
+    city: "Tokyo",
+    date: "Dec 12, 2024",
+  },
+
+  // **Leaving Changes**
+  {
+    id: "9",
+    name: "Jack",
+    username: "jack_journey",
+    avatar: "https://example.com/avatar9.png",
+    type: StatusType.Leaving,
+    city: "Singapore",
+    date: "Dec 11, 2024",
+  },
+  {
+    id: "10",
+    name: "Kate",
+    username: "kate_worldwide",
+    avatar: "https://example.com/avatar10.png",
+    type: StatusType.Leaving,
+    city: "Paris",
+    date: "Dec 10, 2024",
+  },
+
+  // **Trip Additions**
+  {
+    id: "11",
+    name: "Liam",
+    username: "liam_global",
+    avatar: "https://example.com/avatar11.png",
+    type: StatusType.Trip,
+    city: "Dubai",
+    date: "Dec 9, 2024",
+  },
+  {
+    id: "12",
+    name: "Mia",
+    username: "mia_onthego",
+    avatar: "https://example.com/avatar12.png",
+    type: StatusType.Trip,
+    city: "Hong Kong",
+    date: "Dec 8, 2024",
+  },
+];
+
 // **Friends Section Data**
 export const MOCK_FRIENDS: Friend[] = [
   {
