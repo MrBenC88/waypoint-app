@@ -13,6 +13,7 @@ export enum StatusType {
 export type Friend = {
   id: string;
   name: string;
+  username: string;
   avatar: string;
   availability: AvailabilityStatus;
   purpose?: PurposeOfVisit;
@@ -23,6 +24,7 @@ export type Friend = {
 export type StatusFeedItem = {
   id: string;
   name: string;
+  username: string;
   avatar: string;
   type: StatusType;
   status?: AvailabilityStatus;

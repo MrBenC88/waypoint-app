@@ -6,6 +6,7 @@ export const MOCK_FRIENDS: Friend[] = [
   {
     id: "1",
     name: "Alice",
+    username: "alice_wanderlust",
     avatar: "https://example.com/avatar1.png",
     availability: AvailabilityStatus.AvailableToMeetUp,
     purpose: PurposeOfVisit.WorkTrip,
@@ -15,6 +16,7 @@ export const MOCK_FRIENDS: Friend[] = [
   {
     id: "2",
     name: "Bob",
+    username: "bobthetraveler",
     avatar: "https://example.com/avatar2.png",
     availability: AvailabilityStatus.LookingForRecommendations,
     purpose: PurposeOfVisit.ExploringCity,
@@ -23,6 +25,7 @@ export const MOCK_FRIENDS: Friend[] = [
   {
     id: "3",
     name: "Charlie",
+    username: "charlie_justchillin",
     avatar: "https://example.com/avatar3.png",
     availability: AvailabilityStatus.JustArrived,
     purpose: PurposeOfVisit.PassingThrough,
@@ -32,6 +35,7 @@ export const MOCK_FRIENDS: Friend[] = [
   {
     id: "4",
     name: "Daisy",
+    username: "daisy_globetrotter",
     avatar: "https://example.com/avatar4.png",
     availability: AvailabilityStatus.AvailableForDinner,
     purpose: PurposeOfVisit.Conference,
@@ -41,6 +45,7 @@ export const MOCK_FRIENDS: Friend[] = [
   {
     id: "5",
     name: "Eli",
+    username: "eli_nomad",
     avatar: "https://example.com/avatar5.png",
     availability: AvailabilityStatus.ChillingNoPlans,
     purpose: PurposeOfVisit.Vacation,
@@ -55,6 +60,7 @@ export const MOCK_STATUSES: StatusFeedItem[] = [
   {
     id: "1",
     name: "Alice",
+    username: "alice_wanderlust",
     avatar: "https://example.com/avatar1.png",
     type: StatusType.Availability,
     status: AvailabilityStatus.AvailableToMeetUp,
@@ -64,6 +70,7 @@ export const MOCK_STATUSES: StatusFeedItem[] = [
   {
     id: "2",
     name: "Frank",
+    username: "frank_adventurer",
     avatar: "https://example.com/avatar6.png",
     type: StatusType.Availability,
     status: AvailabilityStatus.LookingForRecommendations,
@@ -75,6 +82,7 @@ export const MOCK_STATUSES: StatusFeedItem[] = [
   {
     id: "3",
     name: "Bob",
+    username: "bobthetraveler",
     avatar: "https://example.com/avatar2.png",
     type: StatusType.Purpose,
     purpose: PurposeOfVisit.Conference,
@@ -84,6 +92,7 @@ export const MOCK_STATUSES: StatusFeedItem[] = [
   {
     id: "4",
     name: "Grace",
+    username: "grace_explorer",
     avatar: "https://example.com/avatar7.png",
     type: StatusType.Purpose,
     purpose: PurposeOfVisit.ExploringCity,
@@ -95,6 +104,7 @@ export const MOCK_STATUSES: StatusFeedItem[] = [
   {
     id: "5",
     name: "Charlie",
+    username: "charlie_justchillin",
     avatar: "https://example.com/avatar3.png",
     type: StatusType.Host,
     hostStatus: HostStatus.OpenToHost,
@@ -104,6 +114,7 @@ export const MOCK_STATUSES: StatusFeedItem[] = [
   {
     id: "6",
     name: "Daisy",
+    username: "daisy_globetrotter",
     avatar: "https://example.com/avatar4.png",
     type: StatusType.Host,
     hostStatus: HostStatus.NotHosting,
@@ -115,6 +126,7 @@ export const MOCK_STATUSES: StatusFeedItem[] = [
   {
     id: "7",
     name: "Eli",
+    username: "eli_nomad",
     avatar: "https://example.com/avatar5.png",
     type: StatusType.Location,
     city: "Vancouver",
@@ -123,6 +135,7 @@ export const MOCK_STATUSES: StatusFeedItem[] = [
   {
     id: "8",
     name: "Hannah",
+    username: "hannah_explorer",
     avatar: "https://example.com/avatar8.png",
     type: StatusType.Location,
     city: "Tokyo",
@@ -133,6 +146,7 @@ export const MOCK_STATUSES: StatusFeedItem[] = [
   {
     id: "9",
     name: "Eli",
+    username: "eli_nomad",
     avatar: "https://example.com/avatar5.png",
     type: StatusType.Leaving,
     city: "New York",
@@ -141,6 +155,7 @@ export const MOCK_STATUSES: StatusFeedItem[] = [
   {
     id: "10",
     name: "Hannah",
+    username: "hannah_explorer",
     avatar: "https://example.com/avatar8.png",
     type: StatusType.Leaving,
     city: "Tokyo",
@@ -151,6 +166,7 @@ export const MOCK_STATUSES: StatusFeedItem[] = [
   {
     id: "11",
     name: "Jack",
+    username: "jack_journey",
     avatar: "https://example.com/avatar9.png",
     type: StatusType.Trip,
     city: "Singapore",
@@ -159,6 +175,7 @@ export const MOCK_STATUSES: StatusFeedItem[] = [
   {
     id: "12",
     name: "Kate",
+    username: "kate_worldwide",
     avatar: "https://example.com/avatar10.png",
     type: StatusType.Trip,
     city: "London",

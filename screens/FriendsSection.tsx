@@ -1,47 +1,40 @@
 import React from "react";
-import { View, StyleSheet, ScrollView, TouchableOpacity } from "react-native";
-import {
-  Text,
-  Avatar,
-  Button,
-  IconButton,
-  Divider,
-  Chip,
-  useTheme,
-  Card,
-} from "react-native-paper";
-import ProfileHeader from "../components/ProfileHeader";
-import CurrentWaypoint from "../components/CurrentWaypoint";
+import { View, StyleSheet } from "react-native";
+import { List, Button, useTheme } from "react-native-paper";
 
 const FriendsSection = ({ navigation }) => {
   const { colors } = useTheme();
 
   return (
-    <View style={styles.section}>
-      <Text style={[styles.sectionTitle, { color: colors.onBackground }]}>
-        👥 Friends (5)
-      </Text>
+    <View>
+      <List.Section>
+        <List.Subheader>Nearby Friends</List.Subheader>
+
+        <List.Item
+          title="Alice"
+          description="Available to Meet"
+          left={() => <List.Icon icon="account" />}
+        />
+        <List.Item
+          title="Charlie"
+          description="Exploring the city"
+          left={() => <List.Icon icon="account" />}
+        />
+      </List.Section>
+
       <Button
-        mode="outlined"
-        style={styles.viewFriendsButton}
-        onPress={() => navigation.navigate("FriendsPage")}
+        mode="contained"
+        onPress={() => alert("Invite Friends!")}
+        style={styles.inviteButton}
       >
-        View Friends
+        Invite Friends
       </Button>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  section: {
-    marginBottom: 20,
-  },
-  sectionTitle: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginBottom: 8,
-  },
-  viewFriendsButton: {
+  inviteButton: {
     marginTop: 10,
   },
 });
