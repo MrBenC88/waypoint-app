@@ -12,7 +12,7 @@ const FriendStoryList = () => {
   return (
     <View>
       <View style={styles.sectionHeaderContainer}>
-        <Text style={[styles.title, { color: colors.onBackground }]}>
+        <Text style={[styles.title, { color: colors.onSurface }]}>
           Who's in Your City?
         </Text>
         <IconButton

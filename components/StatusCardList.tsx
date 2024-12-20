@@ -9,7 +9,7 @@ const StatusCardList = () => {
   const { colors } = useTheme();
   return (
     <View>
-      <Text style={[styles.title, { color: colors.onBackground }]}>
+      <Text style={[styles.title, { color: colors.onSurface }]}>
         Status Updates
       </Text>
       {MOCK_STATUSES.map((status) => (

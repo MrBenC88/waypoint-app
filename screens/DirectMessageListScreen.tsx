@@ -96,8 +96,8 @@ const DirectMessageListScreen = ({ navigation }) => {
   return (
     <>
       {/* App Bar */}
-      <Appbar.Header style={{ backgroundColor: colors.primary }}>
-        <Appbar.Content title="Messages" />
+      <Appbar.Header style={{ backgroundColor: colors.primaryContainer }}>
+        <Appbar.Content title="Messages" color={colors.onSurface} />
         <Appbar.Action
           icon="magnify"
           onPress={() => console.log("Search messages")}
