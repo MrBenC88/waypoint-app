@@ -16,7 +16,7 @@ const WhoInYourCityScreen = ({ navigation }) => {
           onPress={() => navigation.goBack()}
           iconColor={colors.primary}
         />
-        <Text style={[styles.headerTitle, { color: colors.onBackground }]}>
+        <Text style={[styles.headerTitle, { color: colors.onSurface }]}>
           Friends in Your City
         </Text>
       </View>

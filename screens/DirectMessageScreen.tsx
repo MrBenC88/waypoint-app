@@ -38,7 +38,7 @@ const DirectMessageScreen = ({ route, navigation }) => {
           isUser ? styles.userMessage : styles.friendMessage,
         ]}
       >
-        <Text style={{ color: colors.onSurface }}>{item.message}</Text>
+        <Text style={{ color: colors.surface }}>{item.message}</Text>
         <Text style={styles.messageTime}>{item.time}</Text>
       </View>
     );
@@ -50,7 +50,7 @@ const DirectMessageScreen = ({ route, navigation }) => {
       <Appbar.Header style={{ backgroundColor: colors.primary }}>
         <Appbar.BackAction onPress={() => navigation.goBack()} />
         <Avatar.Image source={{ uri: user.avatar }} size={40} />
-        <Appbar.Content title={user.name} />
+        <Appbar.Content title={user.name} color={colors.surface} />
       </Appbar.Header>
 
       <FlatList

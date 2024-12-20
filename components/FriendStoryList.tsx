@@ -19,13 +19,14 @@ const FriendStoryList = () => {
           icon="chevron-right"
           size={24}
           onPress={() => navigation.navigate("WhoInYourCityScreen")}
-          iconColor={colors.primary}
+          iconColor={colors.secondary}
         />
       </View>
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.horizontalScroll}
+        snapToAlignment="start"
       >
         {MOCK_FRIENDS.map((friend) => (
           <FriendStory key={friend.id} friend={friend} />

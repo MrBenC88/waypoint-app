@@ -4,6 +4,7 @@ import { Text, useTheme } from "react-native-paper";
 import { MOCK_STATUSES } from "../data/mockData";
 
 import StatusCard from "./StatusCard";
+import { StatusType } from "../data/types";
 
 const StatusCardList = () => {
   const { colors } = useTheme();

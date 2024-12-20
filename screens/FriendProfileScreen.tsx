@@ -33,18 +33,25 @@ const FriendProfileScreen = ({ route, navigation }) => {
           style={styles.avatar}
         />
         <View style={styles.userInfo}>
-          <Text style={[styles.userName, { color: colors.onBackground }]}>
+          <Text style={[styles.userName, { color: colors.onSurface }]}>
             {user.name}
           </Text>
-          <Text style={[styles.userBio, { color: colors.onSurfaceVariant }]}>
+          <Text style={[styles.userBio, { color: colors.onSurface }]}>
             {user.bio || "No bio provided."}
           </Text>
         </View>
       </View>
 
       {/* Mutual Friends Count */}
-      <View style={styles.mutualFriendsSection}>
-        <Text style={[styles.mutualFriendsText, { color: colors.onSurface }]}>
+      <View
+        style={{
+          padding: 10,
+          borderRadius: 10,
+          alignItems: "center",
+          backgroundColor: colors.secondary,
+        }}
+      >
+        <Text style={[styles.mutualFriendsText, { color: colors.surface }]}>
           Mutual Friends: {user.mutualFriends || 0}
         </Text>
       </View>
@@ -99,7 +106,6 @@ const styles = StyleSheet.create({
   mutualFriendsSection: {
     marginBottom: 20,
     padding: 10,
-    backgroundColor: "#F2F2F2",
     borderRadius: 10,
     alignItems: "center",
   },

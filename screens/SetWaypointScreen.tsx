@@ -90,14 +90,14 @@ const SetWaypointScreen = ({ navigation }) => {
               onPress={() => navigation.goBack()}
               iconColor={colors.primary}
             />
-            <Text style={[styles.headerTitle, { color: colors.onBackground }]}>
+            <Text style={[styles.headerTitle, { color: colors.onSurface }]}>
               Set Your Waypoint
             </Text>
           </View>
 
           {/* Input Section */}
           <View style={styles.contentContainer}>
-            <Text style={[styles.label, { color: colors.onBackground }]}>
+            <Text style={[styles.label, { color: colors.onSurface }]}>
               Enter Your Current City
             </Text>
 
