@@ -1,5 +1,46 @@
 import { DefaultTheme } from "react-native-paper";
 
+export const forestGreen = {
+  ...DefaultTheme,
+  colors: {
+    primary: "#2F855A", // Forest green for buttons, active states, and tabs
+    primaryContainer: "#A3D9A5", // Light green for container backgrounds
+    secondary: "#38A169", // Mid-green for highlights and accents
+    secondaryContainer: "#C6F6D5", // Soft green for secondary backgrounds
+    background: "#F0FFF4", // Light minty green background for a fresh feel
+    surface: "#FFFFFF", // Used for cards, inputs, and surfaces
+    surfaceVariant: "#E6F4EA", // Subtle green variant of surface for contrast
+    surfaceDisabled: "rgba(0, 0, 0, 0.12)", // For disabled states
+    text: "#1E3932", // Deep green for primary text
+    onPrimary: "#FFFFFF", // Text/icons on primary color
+    onPrimaryContainer: "#1F513B", // Text/icons on primary container
+    onSecondary: "#1F3932", // Text/icons on secondary color
+    onSecondaryContainer: "#2F5233", // Text/icons on secondary container
+    onSurface: "#1E3932", // Text/icons on surface
+    onSurfaceVariant: "#5F6368", // Text/icons on surface variant
+    onSurfaceDisabled: "rgba(0, 0, 0, 0.38)", // Disabled text/icons on surface
+    onError: "#FFFFFF", // Text/icons on error
+    outline: "#8CA08F", // Used for borders and outlines
+    outlineVariant: "#B2B2B2", // Subtle outline
+    error: "#FF6B6B", // Error for form validation and errors
+    errorContainer: "#FFDAD4", // Background for error containers
+    inverseSurface: "#1E3932", // Inverse of surface
+    inverseOnSurface: "#FFFFFF", // Text/icons on inverse surface
+    inversePrimary: "#2F855A", // Inverse of primary
+    shadow: "rgba(0, 0, 0, 0.2)", // Shadow color
+    scrim: "rgba(0, 0, 0, 0.4)", // Scrim for modals, etc.
+    backdrop: "rgba(0, 0, 0, 0.5)", // Backdrop for dialogs
+    elevation: {
+      level0: "transparent",
+      level1: "rgba(0,0,0,0.05)",
+      level2: "rgba(0,0,0,0.08)",
+      level3: "rgba(0,0,0,0.12)", // This is the key that was missing
+      level4: "rgba(0,0,0,0.15)",
+      level5: "rgba(0,0,0,0.20)",
+    },
+  },
+};
+
 export const coolMistBlue = {
   ...DefaultTheme,
   colors: {
@@ -66,47 +107,6 @@ export const lavenderDream = {
   },
 };
 
-export const forestGreen = {
-  ...DefaultTheme,
-  colors: {
-    primary: "#2F855A", // Forest green for buttons, active states, and tabs
-    primaryContainer: "#A3D9A5", // Light green for container backgrounds
-    secondary: "#38A169", // Mid-green for highlights and accents
-    secondaryContainer: "#C6F6D5", // Soft green for secondary backgrounds
-    background: "#F0FFF4", // Light minty green background for a fresh feel
-    surface: "#FFFFFF", // Used for cards, inputs, and surfaces
-    surfaceVariant: "#E6F4EA", // Subtle green variant of surface for contrast
-    surfaceDisabled: "rgba(0, 0, 0, 0.12)", // For disabled states
-    text: "#1E3932", // Deep green for primary text
-    onPrimary: "#FFFFFF", // Text/icons on primary color
-    onPrimaryContainer: "#1F513B", // Text/icons on primary container
-    onSecondary: "#1F3932", // Text/icons on secondary color
-    onSecondaryContainer: "#2F5233", // Text/icons on secondary container
-    onSurface: "#1E3932", // Text/icons on surface
-    onSurfaceVariant: "#5F6368", // Text/icons on surface variant
-    onSurfaceDisabled: "rgba(0, 0, 0, 0.38)", // Disabled text/icons on surface
-    onError: "#FFFFFF", // Text/icons on error
-    outline: "#8CA08F", // Used for borders and outlines
-    outlineVariant: "#B2B2B2", // Subtle outline
-    error: "#FF6B6B", // Error for form validation and errors
-    errorContainer: "#FFDAD4", // Background for error containers
-    inverseSurface: "#1E3932", // Inverse of surface
-    inverseOnSurface: "#FFFFFF", // Text/icons on inverse surface
-    inversePrimary: "#2F855A", // Inverse of primary
-    shadow: "rgba(0, 0, 0, 0.2)", // Shadow color
-    scrim: "rgba(0, 0, 0, 0.4)", // Scrim for modals, etc.
-    backdrop: "rgba(0, 0, 0, 0.5)", // Backdrop for dialogs
-    elevation: {
-      level0: "transparent",
-      level1: "rgba(0,0,0,0.05)",
-      level2: "rgba(0,0,0,0.08)",
-      level3: "rgba(0,0,0,0.12)", // This is the key that was missing
-      level4: "rgba(0,0,0,0.15)",
-      level5: "rgba(0,0,0,0.20)",
-    },
-  },
-};
-
 export const sunsetSocial = {
   ...DefaultTheme,
   colors: {
@@ -140,46 +140,299 @@ export const sunsetSocial = {
   },
 };
 
-export const hybridSunsetSocialAndLavenderDream = {
+export const oceanBreeze = {
   ...DefaultTheme,
   colors: {
-    primary: "#F97316", // Sunset Orange (Primary CTA buttons and active states)
-    primaryContainer: "#FFD8B2", // Soft Peach (Hover/Press container for buttons)
-    secondary: "#9F7AEA", // Lavender Purple (Secondary accents and toggles)
-    secondaryContainer: "#E9D8FD", // Soft Lavender container (backgrounds)
-    tertiary: "#FBBF24", // Golden Yellow (highlight color, e.g., notifications, badges)
-    tertiaryContainer: "#FEF3C7", // Light Warm Yellow (highlight background)
-    surface: "#FFFFFF", // Pure White (Card surfaces, modals, etc.)
-    surfaceVariant: "#F3F4F6", // Light Neutral (input backgrounds, surface variants)
-    background: "#FAF5FF", // Lavender Background (Main background color)
-    error: "#FF6B6B", // Red for errors
-    errorContainer: "#FFE6E6", // Light red background for error containers
-    onPrimary: "#FFFFFF", // Text on top of the primary (for buttons)
-    onPrimaryContainer: "#7F2800", // Text inside containers with the primary container color
-    onSecondary: "#FFFFFF", // Text on top of the secondary (for buttons, chips, etc.)
-    onSecondaryContainer: "#332E57", // Text on secondary container background
-    onTertiary: "#FFFFFF", // Text on top of the tertiary (for badges, alerts, etc.)
-    onTertiaryContainer: "#704C00", // Text inside containers with the tertiary container color
-    onSurface: "#2F2F2F", // Text on general surface backgrounds (cards, inputs)
-    onSurfaceVariant: "#4A5568", // Text on surface variant backgrounds
-    onError: "#FFFFFF", // Text on red error backgrounds
-    onErrorContainer: "#7F0000", // Text on error container
-    onBackground: "#2F2F2F", // Text on general background
-    outline: "#CBD5E1", // Used for outlines (input outlines, button borders, etc.)
-    outlineVariant: "#E2E8F0", // Lighter outline for secondary elements
-    inverseSurface: "#1A202C", // For dark mode, inverse of surface
-    inverseOnSurface: "#EDEDED", // For dark mode, inverse of onSurface
-    inversePrimary: "#F97316", // Used for contrasting button backgrounds in dark mode
-    shadow: "#000000", // Pure black shadow
-    scrim: "rgba(0,0,0,0.32)", // Used for modals, backdrops, etc.
-    backdrop: "rgba(0,0,0,0.5)", // Backdrop overlay for modals, loaders
-    elevation: {
-      level0: "transparent",
-      level1: "#F9FAFB", // Slight elevation (shadow)
-      level2: "#F3F4F6", // Slightly higher elevation
-      level3: "#E5E7EB", // Elevated shadow
-      level4: "#D1D5DB", // More elevated shadow
-      level5: "#9CA3AF", // Highest elevation (modals, popups)
-    },
+    primary: "#00B4D8",
+    primaryContainer: "#CAF0F8",
+    secondary: "#90E0EF",
+    secondaryContainer: "#ADE8F4",
+    background: "#F0F9FF",
+    surface: "#FFFFFF",
+    surfaceVariant: "#E0F7FA",
+    surfaceDisabled: "rgba(0, 0, 0, 0.12)",
+    text: "#023047",
+    onPrimary: "#FFFFFF",
+    onPrimaryContainer: "#0077B6",
+    onSecondary: "#023047",
+    onSecondaryContainer: "#005A71",
+    onSurface: "#023047",
+    onSurfaceVariant: "#5F6368",
+    onSurfaceDisabled: "rgba(0, 0, 0, 0.38)",
+    onError: "#FFFFFF",
+    outline: "#90E0EF",
+    outlineVariant: "#A0C4FF",
+    error: "#FF6B6B",
+    errorContainer: "#FFDAD4",
+    inverseSurface: "#023047",
+    inverseOnSurface: "#FFFFFF",
+    inversePrimary: "#0077B6",
+    shadow: "rgba(0, 0, 0, 0.2)",
+    scrim: "rgba(0, 0, 0, 0.4)",
+    backdrop: "rgba(0, 0, 0, 0.5)",
+  },
+};
+
+export const fierySunrise = {
+  ...DefaultTheme,
+  colors: {
+    primary: "#FF4500",
+    primaryContainer: "#FFD8CC",
+    secondary: "#FFA07A",
+    secondaryContainer: "#FFE4E1",
+    background: "#FFF5E6",
+    surface: "#FFFFFF",
+    surfaceVariant: "#FFE8E0",
+    surfaceDisabled: "rgba(0, 0, 0, 0.12)",
+    text: "#4A154B",
+    onPrimary: "#FFFFFF",
+    onPrimaryContainer: "#8B1A1A",
+    onSecondary: "#4A154B",
+    onSecondaryContainer: "#A45C00",
+    onSurface: "#4A154B",
+    onSurfaceVariant: "#6D3A5D",
+    onSurfaceDisabled: "rgba(0, 0, 0, 0.38)",
+    onError: "#FFFFFF",
+    outline: "#FFA07A",
+    outlineVariant: "#FFD1A6",
+    error: "#FF6B6B",
+    errorContainer: "#FFDAD4",
+    inverseSurface: "#4A154B",
+    inverseOnSurface: "#FFFFFF",
+    inversePrimary: "#FF4500",
+    shadow: "rgba(0, 0, 0, 0.2)",
+    scrim: "rgba(0, 0, 0, 0.4)",
+    backdrop: "rgba(0, 0, 0, 0.5)",
+  },
+};
+
+export const midnightMystery = {
+  ...DefaultTheme,
+  colors: {
+    primary: "#1E1E2C",
+    primaryContainer: "#3D3D5C",
+    secondary: "#8D86C9",
+    secondaryContainer: "#D8B4E2",
+    background: "#1A1A2E",
+    surface: "#252545",
+    surfaceVariant: "#30305B",
+    surfaceDisabled: "rgba(0, 0, 0, 0.12)",
+    text: "#EDEDED",
+    onPrimary: "#FFFFFF",
+    onPrimaryContainer: "#2E2E4E",
+    onSecondary: "#EDEDED",
+    onSecondaryContainer: "#6F6FBF",
+    onSurface: "#EDEDED",
+    onSurfaceVariant: "#A0A0C0",
+    onSurfaceDisabled: "rgba(0, 0, 0, 0.38)",
+    onError: "#FFFFFF",
+    outline: "#8D86C9",
+    outlineVariant: "#A0A0C0",
+    error: "#FF6B6B",
+    errorContainer: "#FFDAD4",
+    inverseSurface: "#1E1E2C",
+    inverseOnSurface: "#FFFFFF",
+    inversePrimary: "#8D86C9",
+    shadow: "rgba(0, 0, 0, 0.2)",
+    scrim: "rgba(0, 0, 0, 0.4)",
+    backdrop: "rgba(0, 0, 0, 0.5)",
+  },
+};
+
+export const twilightBliss = {
+  ...DefaultTheme,
+  colors: {
+    primary: "#83677B",
+    primaryContainer: "#F1E4E8",
+    secondary: "#9A8C98",
+    secondaryContainer: "#E6D5E0",
+    background: "#F8F4F8",
+    surface: "#FFFFFF",
+    surfaceVariant: "#E6D5E0",
+    surfaceDisabled: "rgba(0, 0, 0, 0.12)",
+    text: "#2F2F2F",
+    onPrimary: "#FFFFFF",
+    onPrimaryContainer: "#5F4353",
+    onSecondary: "#2F2F2F",
+    onSecondaryContainer: "#6F506F",
+    onSurface: "#2F2F2F",
+    onSurfaceVariant: "#5F6368",
+    onSurfaceDisabled: "rgba(0, 0, 0, 0.38)",
+    onError: "#FFFFFF",
+    outline: "#9A8C98",
+    outlineVariant: "#B2B2B2",
+    error: "#FF6B6B",
+    errorContainer: "#FFDAD4",
+    inverseSurface: "#2F2F2F",
+    inverseOnSurface: "#FFFFFF",
+    inversePrimary: "#83677B",
+    shadow: "rgba(0, 0, 0, 0.2)",
+    scrim: "rgba(0, 0, 0, 0.4)",
+    backdrop: "rgba(0, 0, 0, 0.5)",
+  },
+};
+
+export const neonGlow = {
+  ...DefaultTheme,
+  colors: {
+    primary: "#39FF14", // Neon Green (main call-to-action)
+    primaryContainer: "#D0FFD6", // Pale Neon Green container background
+    secondary: "#FF00FF", // Neon Magenta for highlights
+    secondaryContainer: "#FFD6F4", // Light Pink container background
+    background: "#0D0D0D", // Dark Black for contrast
+    surface: "#1C1C1C", // Dark Gray surface for cards
+    surfaceVariant: "#333333", // Variant gray for subtle contrast
+    surfaceDisabled: "rgba(255, 255, 255, 0.12)",
+    text: "#E0E0E0",
+    onPrimary: "#000000",
+    onPrimaryContainer: "#003300",
+    onSecondary: "#FFFFFF",
+    onSecondaryContainer: "#330033",
+    onSurface: "#E0E0E0",
+    onSurfaceVariant: "#A0A0A0",
+    onSurfaceDisabled: "rgba(255, 255, 255, 0.38)",
+    onError: "#FFFFFF",
+    outline: "#FFD700",
+    outlineVariant: "#FFA500",
+    error: "#FF6B6B",
+    errorContainer: "#FFDAD4",
+    inverseSurface: "#E0E0E0",
+    inverseOnSurface: "#0D0D0D",
+    inversePrimary: "#FF4500",
+    shadow: "rgba(0, 0, 0, 0.2)",
+    scrim: "rgba(0, 0, 0, 0.4)",
+    backdrop: "rgba(0, 0, 0, 0.5)",
+  },
+};
+
+export const berryBlush = {
+  ...DefaultTheme,
+  colors: {
+    primary: "#9B2C2C", // Deep berry red
+    primaryContainer: "#FFBABA",
+    secondary: "#E63946", // Red coral
+    secondaryContainer: "#FFD1D1",
+    background: "#FFF5F5",
+    surface: "#FFFFFF",
+    surfaceVariant: "#F7E7E7",
+    surfaceDisabled: "rgba(0, 0, 0, 0.12)",
+    text: "#4A154B",
+    onPrimary: "#FFFFFF",
+    onPrimaryContainer: "#4A154B",
+    onSecondary: "#4A154B",
+    onSecondaryContainer: "#660000",
+    onSurface: "#4A154B",
+    onSurfaceVariant: "#7F4F4F",
+    onSurfaceDisabled: "rgba(0, 0, 0, 0.38)",
+    onError: "#FFFFFF",
+    outline: "#FF9999",
+    outlineVariant: "#FFCCCC",
+    error: "#FF6B6B",
+    errorContainer: "#FFDAD4",
+    inverseSurface: "#4A154B",
+    inverseOnSurface: "#FFFFFF",
+    inversePrimary: "#9B2C2C",
+    shadow: "rgba(0, 0, 0, 0.2)",
+    scrim: "rgba(0, 0, 0, 0.4)",
+    backdrop: "rgba(0, 0, 0, 0.5)",
+  },
+};
+
+export const cyberpunkFlare = {
+  ...DefaultTheme,
+  colors: {
+    primary: "#FF007F", // Bright Cyberpunk Pink
+    primaryContainer: "#FFD1E6",
+    secondary: "#00E5FF", // Neon Cyan for accents
+    secondaryContainer: "#D1F5FF",
+    background: "#1A1A2E",
+    surface: "#252545",
+    surfaceVariant: "#30305B",
+    surfaceDisabled: "rgba(0, 0, 0, 0.12)",
+    text: "#EDEDED",
+    onPrimary: "#FFFFFF",
+    onPrimaryContainer: "#330033",
+    onSecondary: "#FFFFFF",
+    onSecondaryContainer: "#003333",
+    onSurface: "#EDEDED",
+    onSurfaceVariant: "#A0A0C0",
+    onSurfaceDisabled: "rgba(0, 0, 0, 0.38)",
+    onError: "#FFFFFF",
+    outline: "#00E5FF",
+    outlineVariant: "#00FFFF",
+    error: "#FF6B6B",
+    errorContainer: "#FFDAD4",
+    inverseSurface: "#1A1A2E",
+    inverseOnSurface: "#FFFFFF",
+    inversePrimary: "#FF007F",
+    shadow: "rgba(0, 0, 0, 0.2)",
+    scrim: "rgba(0, 0, 0, 0.4)",
+    backdrop: "rgba(0, 0, 0, 0.5)",
+  },
+};
+
+export const honeycombGold = {
+  ...DefaultTheme,
+  colors: {
+    primary: "#FFC107",
+    primaryContainer: "#FFF9E5",
+    secondary: "#FFA000",
+    secondaryContainer: "#FFF4CC",
+    background: "#FFF9E5",
+    surface: "#FFFFFF",
+    surfaceVariant: "#FFECB3",
+    surfaceDisabled: "rgba(0, 0, 0, 0.12)",
+    text: "#4A3222",
+    onPrimary: "#FFFFFF",
+    onPrimaryContainer: "#4A3222",
+    onSecondary: "#FFFFFF",
+    onSecondaryContainer: "#7F5700",
+    onSurface: "#4A3222",
+    onSurfaceVariant: "#7F5700",
+    onSurfaceDisabled: "rgba(0, 0, 0, 0.38)",
+    onError: "#FFFFFF",
+    outline: "#FFC107",
+    outlineVariant: "#FFD700",
+    error: "#FF6B6B",
+    errorContainer: "#FFDAD4",
+    inverseSurface: "#4A3222",
+    inverseOnSurface: "#FFFFFF",
+    inversePrimary: "#FFA000",
+    shadow: "rgba(0, 0, 0, 0.2)",
+    scrim: "rgba(0, 0, 0, 0.4)",
+    backdrop: "rgba(0, 0, 0, 0.5)",
+  },
+};
+
+export const arcticAurora = {
+  ...DefaultTheme,
+  colors: {
+    primary: "#00FFCC",
+    primaryContainer: "#E0FFF9",
+    secondary: "#007BFF",
+    secondaryContainer: "#CCE5FF",
+    background: "#F0F9FF",
+    surface: "#FFFFFF",
+    surfaceVariant: "#E0F0FF",
+    surfaceDisabled: "rgba(0, 0, 0, 0.12)",
+    text: "#023047",
+    onPrimary: "#000000",
+    onPrimaryContainer: "#007B71",
+    onSecondary: "#023047",
+    onSecondaryContainer: "#005A71",
+    onSurface: "#023047",
+    onSurfaceVariant: "#5F6368",
+    onSurfaceDisabled: "rgba(0, 0, 0, 0.38)",
+    onError: "#FFFFFF",
+    outline: "#90E0EF",
+    outlineVariant: "#A0C4FF",
+    error: "#FF6B6B",
+    errorContainer: "#FFDAD4",
+    inverseSurface: "#023047",
+    inverseOnSurface: "#FFFFFF",
+    inversePrimary: "#00FFCC",
+    shadow: "rgba(0, 0, 0, 0.2)",
+    scrim: "rgba(0, 0, 0, 0.4)",
+    backdrop: "rgba(0, 0, 0, 0.5)",
   },
 };
