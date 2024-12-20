@@ -1,11 +1,12 @@
 import React from "react";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { Text, Avatar, useTheme } from "react-native-paper";
-import { AvailabilityStatusEmojis } from "../data/enums";
+import { AvailabilityStatusEmojis, PurposeOfVisitEmojis } from "../data/enums";
 
 const FriendListItem = ({ item, navigation }) => {
   const { colors } = useTheme();
   const availabilityEmoji = AvailabilityStatusEmojis[item.availability] || "";
+  const purposeEmoji = PurposeOfVisitEmojis[item.purpose] || "";
   return (
     <TouchableOpacity
       style={[styles.listItem, { borderBottomColor: colors.outlineVariant }]}
@@ -21,8 +22,10 @@ const FriendListItem = ({ item, navigation }) => {
           {item.name} ({item.city})
         </Text>
         <Text style={[styles.itemSubtitle, { color: colors.onSurfaceVariant }]}>
-          {availabilityEmoji}
-          {item.availability}
+          {availabilityEmoji} {item.availability}
+        </Text>
+        <Text style={[styles.itemSubtitle, { color: colors.onSurfaceVariant }]}>
+          {purposeEmoji} {item.purpose}
         </Text>
       </View>
     </TouchableOpacity>

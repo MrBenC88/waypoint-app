@@ -3,9 +3,12 @@ import { View, StyleSheet, ScrollView } from "react-native";
 import { Text, IconButton, useTheme } from "react-native-paper";
 import { MOCK_FRIENDS } from "../data/mockData";
 import FriendStory from "../components/FriendStory";
+import { useNavigation } from "@react-navigation/native";
 
 const FriendStoryList = () => {
   const { colors } = useTheme();
+  const navigation = useNavigation();
+
   return (
     <View>
       <View style={styles.sectionHeaderContainer}>
@@ -15,7 +18,7 @@ const FriendStoryList = () => {
         <IconButton
           icon="chevron-right"
           size={24}
-          onPress={() => console.log("View Full List of Who’s in Your City")}
+          onPress={() => navigation.navigate("WhoInYourCityScreen")}
           iconColor={colors.primary}
         />
       </View>
