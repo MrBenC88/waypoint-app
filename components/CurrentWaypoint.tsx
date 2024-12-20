@@ -1,8 +1,10 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import { Text, Chip, useTheme } from "react-native-paper";
 
 const CurrentWaypoint = () => {
+  const navigation = useNavigation();
   const { colors } = useTheme();
   return (
     <View style={styles.waypointSection}>
@@ -12,7 +14,7 @@ const CurrentWaypoint = () => {
       <Chip
         style={[styles.waypointChip, { backgroundColor: colors.primary }]}
         textStyle={[styles.waypointChipText, { color: colors.onPrimary }]}
-        onPress={() => console.log("Change waypoint")}
+        onPress={() => navigation.navigate("SetWaypointScreen")}
       >
         Vancouver, BC, Canada
       </Chip>

@@ -7,6 +7,7 @@ import { IconButton } from "react-native-paper";
 import FriendProfileScreen from "../screens/FriendProfileScreen";
 import DirectMessageScreen from "../screens/DirectMessageScreen";
 import WhoInYourCityScreen from "../screens/WhoInYourCityScreen";
+import SetWaypointScreen from "../screens/SetWaypointScreen";
 
 const Stack = createStackNavigator();
 
@@ -55,6 +56,11 @@ const StackNavigator = () => (
       name="WhoInYourCityScreen"
       component={WhoInYourCityScreen}
       options={{ title: "Who's in Your City" }}
+    />
+    <Stack.Screen
+      name="SetWaypointScreen"
+      component={SetWaypointScreen}
+      options={{ title: "Set your current Waypoint" }}
     />
   </Stack.Navigator>
 );
