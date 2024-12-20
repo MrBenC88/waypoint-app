@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react";
-import { View, StyleSheet, FlatList, Alert, Animated } from "react-native";
+import { View, StyleSheet, Alert } from "react-native";
 import { Text, Avatar, useTheme, Appbar, Snackbar } from "react-native-paper";
-import { RectButton, Swipeable } from "react-native-gesture-handler";
+import { SwipeListView } from "react-native-swipe-list-view";
 import { AvailabilityStatusEmojis } from "../data/enums";
 import { MOCK_NOTIFICATIONS } from "../data/mockData";
 
@@ -71,53 +71,31 @@ const NotificationScreen = () => {
     ]);
   }, []);
 
-  const renderRightActions = (progress, dragX, id) => {
-    const scale = dragX.interpolate({
-      inputRange: [-100, 0],
-      outputRange: [1, 0],
-      extrapolate: "clamp",
-    });
-
-    return (
-      <RectButton
-        style={styles.rightAction}
-        onPress={() => handleDismissNotification(id)}
-      >
-        <Animated.Text style={[styles.actionText, { transform: [{ scale }] }]}>
-          Dismiss
-        </Animated.Text>
-      </RectButton>
-    );
-  };
-
-  const renderNotification = ({ item }) => {
+  const renderItem = ({ item }) => {
     const title = generateNotificationTitle(item);
-
     return (
-      <Swipeable
-        renderRightActions={(progress, dragX) =>
-          renderRightActions(progress, dragX, item.id)
-        }
+      <View
+        style={[
+          styles.notificationContainer,
+          { backgroundColor: colors.surface },
+        ]}
       >
-        <View
-          style={[
-            styles.notificationContainer,
-            { backgroundColor: colors.surface },
-          ]}
-        >
-          <Avatar.Image source={{ uri: item.avatar }} size={40} />
-          <View style={styles.notificationContent}>
-            <Text
-              style={[styles.notificationTitle, { color: colors.onSurface }]}
-            >
-              {title}
-            </Text>
-            <Text style={styles.notificationTime}>{item.date}</Text>
-          </View>
+        <Avatar.Image source={{ uri: item.avatar }} size={40} />
+        <View style={styles.notificationContent}>
+          <Text style={[styles.notificationTitle, { color: colors.onSurface }]}>
+            {title}
+          </Text>
+          <Text style={styles.notificationTime}>{item.date}</Text>
         </View>
-      </Swipeable>
+      </View>
     );
   };
+
+  const renderHiddenItem = (data) => (
+    <View style={styles.rowBack}>
+      <Text style={styles.deleteText}>Dismiss</Text>
+    </View>
+  );
 
   return (
     <>
@@ -131,11 +109,15 @@ const NotificationScreen = () => {
         />
       </Appbar.Header>
 
-      {/* FlatList for Notifications */}
-      <FlatList
+      {/* Swipe List View for Notifications */}
+      <SwipeListView
         data={notifications}
         keyExtractor={(item) => item.id}
-        renderItem={renderNotification}
+        renderItem={renderItem}
+        renderHiddenItem={renderHiddenItem}
+        rightOpenValue={-75} // Swipe distance
+        disableRightSwipe={true} // Disable swipe-to-right (optional)
+        onRowOpen={(rowKey) => handleDismissNotification(rowKey)} // Dismiss on full swipe
         contentContainerStyle={styles.listContainer}
         onEndReached={loadMoreNotifications} // Infinite Scroll
         onEndReachedThreshold={0.5}
@@ -176,18 +158,17 @@ const styles = StyleSheet.create({
     color: "#666",
     marginTop: 4,
   },
-  rightAction: {
-    justifyContent: "center",
+  rowBack: {
     alignItems: "center",
-    width: 80,
     backgroundColor: "#f44336",
-    borderRadius: 4,
-    marginVertical: 8,
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    paddingRight: 20,
   },
-  actionText: {
+  deleteText: {
     color: "#fff",
     fontWeight: "bold",
-    fontSize: 14,
   },
 });
 
