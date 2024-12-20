@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     borderRadius: 12,
     marginBottom: 10,
+    marginTop: 10,
   },
   profileTopContainer: {
     flexDirection: "row",

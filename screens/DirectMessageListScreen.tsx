@@ -94,9 +94,9 @@ const DirectMessageListScreen = ({ navigation }) => {
   };
 
   return (
-    <>
+    <View style={{ backgroundColor: colors.background, height: "100%" }}>
       {/* App Bar */}
-      <Appbar.Header style={{ backgroundColor: colors.primaryContainer }}>
+      <Appbar.Header>
         <Appbar.Content title="Messages" color={colors.onSurface} />
         <Appbar.Action
           icon="magnify"
@@ -111,7 +111,7 @@ const DirectMessageListScreen = ({ navigation }) => {
         renderItem={renderMessageItem}
         contentContainerStyle={styles.listContainer}
       />
-    </>
+    </View>
   );
 };
 
