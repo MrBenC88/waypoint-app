@@ -6,6 +6,7 @@ import TabNavigator from "./TabNavigator";
 import { IconButton } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 import FriendProfileScreen from "../screens/FriendProfileScreen";
+import DirectMessageScreen from "../screens/DirectMessageScreen";
 
 const Stack = createStackNavigator();
 
@@ -49,6 +50,7 @@ const StackNavigator = () => (
       options={{ headerShown: false }}
     />
     <Stack.Screen name="FriendProfileScreen" component={FriendProfileScreen} />
+    <Stack.Screen name="DirectMessageScreen" component={DirectMessageScreen} />
   </Stack.Navigator>
 );
 
