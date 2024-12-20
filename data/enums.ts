@@ -53,6 +53,19 @@ export enum HostStatus {
 }
 
 export const HostStatusEmojis: Record<HostStatus, string> = {
-  [HostStatus.OpenToHost]: "🛋️",
+  [HostStatus.OpenToHost]: "🏠",
   [HostStatus.NotHosting]: "❌",
+};
+
+// **New Enum for Leftover Status**
+export enum LeftoverStatus {
+  Available = "available", // Leftovers are available
+  None = "none", // No leftovers available
+  Consumed = "consumed", // Leftovers already taken/consumed
+}
+
+export const LeftoverStatusEmojis: Record<LeftoverStatus, string> = {
+  [LeftoverStatus.Available]: "🍕",
+  [LeftoverStatus.None]: "🚫",
+  [LeftoverStatus.Consumed]: "🔥",
 };

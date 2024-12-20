@@ -1,4 +1,9 @@
-import { AvailabilityStatus, PurposeOfVisit, HostStatus } from "./enums";
+import {
+  AvailabilityStatus,
+  PurposeOfVisit,
+  HostStatus,
+  LeftoverStatus,
+} from "./enums";
 import { Friend, StatusFeedItem, StatusType, Trip, CityStatus } from "./types";
 
 // **Notifications Section Data**
@@ -128,6 +133,38 @@ export const MOCK_NOTIFICATIONS: StatusFeedItem[] = [
     city: "Hong Kong",
     date: "Dec 8, 2024",
   },
+
+  // Leftover Status
+  {
+    id: "13",
+    name: "Charlie",
+    username: "charlie_justchillin",
+    avatar: "https://example.com/avatar3.png",
+    type: StatusType.Location,
+    leftoverStatus: LeftoverStatus.Available,
+    city: "Toronto",
+    date: "Dec 17, 2024",
+  },
+  {
+    id: "14",
+    name: "Daisy",
+    username: "daisy_globetrotter",
+    avatar: "https://example.com/avatar4.png",
+    type: StatusType.Location,
+    leftoverStatus: LeftoverStatus.Consumed,
+    city: "London",
+    date: "Dec 16, 2024",
+  },
+  {
+    id: "15",
+    name: "Eli",
+    username: "eli_nomad",
+    avatar: "https://example.com/avatar5.png",
+    type: StatusType.Location,
+    leftoverStatus: LeftoverStatus.None,
+    city: "Tokyo",
+    date: "Dec 15, 2024",
+  },
 ];
 
 // **Friends Section Data**
@@ -179,6 +216,62 @@ export const MOCK_FRIENDS: Friend[] = [
     availability: AvailabilityStatus.ChillingNoPlans,
     purpose: PurposeOfVisit.Vacation,
     hostStatus: HostStatus.NotHosting,
+    city: "Tokyo",
+  },
+  // leftover status
+
+  {
+    id: "6",
+    name: "Alice",
+    username: "alice_wanderlust",
+    avatar: "https://example.com/avatar1.png",
+    availability: AvailabilityStatus.AvailableToMeetUp,
+    purpose: PurposeOfVisit.WorkTrip,
+    hostStatus: HostStatus.OpenToHost,
+    leftoverStatus: LeftoverStatus.Available,
+    city: "Toronto",
+  },
+  {
+    id: "7",
+    name: "Bob",
+    username: "bobthetraveler",
+    avatar: "https://example.com/avatar2.png",
+    availability: AvailabilityStatus.LookingForRecommendations,
+    purpose: PurposeOfVisit.ExploringCity,
+    leftoverStatus: LeftoverStatus.None,
+    city: "New York",
+  },
+  {
+    id: "8",
+    name: "Charlie",
+    username: "charlie_justchillin",
+    avatar: "https://example.com/avatar3.png",
+    availability: AvailabilityStatus.JustArrived,
+    purpose: PurposeOfVisit.PassingThrough,
+    hostStatus: HostStatus.NotHosting,
+    leftoverStatus: LeftoverStatus.Consumed,
+    city: "Vancouver",
+  },
+  {
+    id: "9",
+    name: "Daisy",
+    username: "daisy_globetrotter",
+    avatar: "https://example.com/avatar4.png",
+    availability: AvailabilityStatus.AvailableForDinner,
+    purpose: PurposeOfVisit.Conference,
+    hostStatus: HostStatus.OpenToHost,
+    leftoverStatus: LeftoverStatus.None,
+    city: "London",
+  },
+  {
+    id: "10",
+    name: "Eli",
+    username: "eli_nomad",
+    avatar: "https://example.com/avatar5.png",
+    availability: AvailabilityStatus.ChillingNoPlans,
+    purpose: PurposeOfVisit.Vacation,
+    hostStatus: HostStatus.NotHosting,
+    leftoverStatus: LeftoverStatus.Available,
     city: "Tokyo",
   },
 ];
@@ -309,6 +402,38 @@ export const MOCK_STATUSES: StatusFeedItem[] = [
     type: StatusType.Trip,
     city: "London",
     date: "Jan 1, 2025",
+  },
+
+  // **Leftover Status Changes**
+  {
+    id: "13",
+    name: "Charlie",
+    username: "charlie_justchillin",
+    avatar: "https://example.com/avatar3.png",
+    type: StatusType.Location,
+    leftoverStatus: LeftoverStatus.Available,
+    city: "Toronto",
+    date: "Dec 17, 2024",
+  },
+  {
+    id: "14",
+    name: "Daisy",
+    username: "daisy_globetrotter",
+    avatar: "https://example.com/avatar4.png",
+    type: StatusType.Location,
+    leftoverStatus: LeftoverStatus.Consumed,
+    city: "London",
+    date: "Dec 16, 2024",
+  },
+  {
+    id: "15",
+    name: "Eli",
+    username: "eli_nomad",
+    avatar: "https://example.com/avatar5.png",
+    type: StatusType.Location,
+    leftoverStatus: LeftoverStatus.None,
+    city: "Tokyo",
+    date: "Dec 15, 2024",
   },
 ];
 

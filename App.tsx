@@ -29,7 +29,7 @@ export default function App() {
       <GestureHandlerRootView style={{ flex: 1 }}>
         <NavigationContainer>
           <StackNavigator />
-        </NavigationContainer>{" "}
+        </NavigationContainer>
       </GestureHandlerRootView>
     </PaperProvider>
   );

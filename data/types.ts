@@ -1,9 +1,15 @@
-import { AvailabilityStatus, PurposeOfVisit, HostStatus } from "./enums";
+import {
+  AvailabilityStatus,
+  PurposeOfVisit,
+  HostStatus,
+  LeftoverStatus,
+} from "./enums";
 
 export enum StatusType {
   Availability = "availability",
   Purpose = "purpose",
   Host = "host",
+  Leftover = "leftover",
   Location = "location",
   Leaving = "leaving",
   Trip = "trip",
@@ -18,6 +24,7 @@ export type Friend = {
   availability: AvailabilityStatus;
   purpose?: PurposeOfVisit;
   hostStatus?: HostStatus;
+  leftoverStatus?: LeftoverStatus; // 🆕 New field for Leftover status
   city: string; // **Required city field**
 };
 
@@ -30,6 +37,7 @@ export type StatusFeedItem = {
   status?: AvailabilityStatus;
   purpose?: PurposeOfVisit;
   hostStatus?: HostStatus;
+  leftoverStatus?: LeftoverStatus; // 🆕 New field for Leftover status in the status feed
   city: string; // **Required city field**
   date: string;
 };
