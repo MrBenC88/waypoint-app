@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { View, StyleSheet, TouchableOpacity } from "react-native";
+import React, { useEffect, useState } from "react";
+import { View, StyleSheet, TouchableOpacity, Button } from "react-native";
 import { Text, useTheme, Avatar } from "react-native-paper";
 import Animated, {
   useSharedValue,
@@ -19,7 +19,8 @@ const FriendStory = ({ friend }) => {
   const { colors } = useTheme();
 
   // Shared values for border colors
-  const borderColor = useSharedValue("#e0e0e0"); // Default gray
+  const borderColor = useSharedValue(0); // Value from 0 to 2 for color interpolation
+  const emojiScale = useSharedValue(1); // Animation for emoji scale
 
   // Update colors dynamically based on friend's status
   useEffect(() => {
@@ -27,20 +28,42 @@ const FriendStory = ({ friend }) => {
     const hasLeftovers = friend.leftoverStatus === LeftoverStatus.Available;
 
     if (isOpenToHost && hasLeftovers) {
-      borderColor.value = withTiming("#2962ff", { duration: 500 }); // Mixed blue color
+      borderColor.value = withTiming(2, { duration: 500 });
     } else if (isOpenToHost) {
-      borderColor.value = withTiming("#00c853", { duration: 500 }); // Forest Green
+      borderColor.value = withTiming(1, { duration: 500 });
     } else if (hasLeftovers) {
-      borderColor.value = withTiming("#2962ff", { duration: 500 }); // Blue
+      borderColor.value = withTiming(0.5, { duration: 500 });
     } else {
-      borderColor.value = withTiming("#e0e0e0", { duration: 500 }); // Default gray
+      borderColor.value = withTiming(0, { duration: 500 });
     }
+
+    // Animate the emoji to bounce when status changes
+    emojiScale.value = withTiming(1.5, { duration: 200 }, () => {
+      emojiScale.value = withTiming(1, { duration: 200 });
+    });
   }, [friend.hostStatus, friend.leftoverStatus]);
 
-  // Create an animated style for the border
+  // Interpolate the border color dynamically
   const animatedBorderStyle = useAnimatedStyle(() => {
+    const color = interpolateColor(
+      borderColor.value,
+      [0, 0.5, 1, 2],
+      [
+        "#F2F2F2", // Default: Adventure White
+        "#58C9F3", // Leftovers: Sky Blue
+        "#FF8C42", // Host: Sunset Orange
+        "#FFD700", // Dual: Adventure Gold
+      ]
+    );
     return {
-      borderColor: borderColor.value,
+      borderColor: color,
+    };
+  });
+
+  // Animate the emoji scale
+  const animatedEmojiStyle = useAnimatedStyle(() => {
+    return {
+      transform: [{ scale: emojiScale.value }],
     };
   });
 
@@ -55,9 +78,11 @@ const FriendStory = ({ friend }) => {
       <Animated.View style={[styles.avatarContainer, animatedBorderStyle]}>
         <Avatar.Image source={{ uri: friend.avatar }} size={60} />
         {statusEmoji && (
-          <View style={styles.statusEmojiContainer}>
+          <Animated.View
+            style={[styles.statusEmojiContainer, animatedEmojiStyle]}
+          >
             <Text style={styles.statusEmoji}>{statusEmoji}</Text>
-          </View>
+          </Animated.View>
         )}
       </Animated.View>
       <Text style={[styles.storyName, { color: colors.onSurface }]}>
@@ -69,12 +94,20 @@ const FriendStory = ({ friend }) => {
 
 // 🎉 **Helper Function 1: Get Status Emoji**
 const getStatusEmoji = (friend) => {
-  const hostEmoji = HostStatusEmojis[friend.hostStatus] || "";
-  const leftoverEmoji = LeftoverStatusEmojis[friend.leftoverStatus] || "";
+  const hostEmoji =
+    HostStatusEmojis[friend.hostStatus] ===
+    HostStatusEmojis[HostStatus.OpenToHost]
+      ? HostStatusEmojis[HostStatus.OpenToHost]
+      : "";
+  const leftoverEmoji =
+    LeftoverStatusEmojis[friend.leftoverStatus] ===
+    LeftoverStatusEmojis[LeftoverStatus.Available]
+      ? LeftoverStatusEmojis[LeftoverStatus.Available]
+      : "";
 
   // Combine host and leftover emoji if both exist
   if (hostEmoji && leftoverEmoji) {
-    return `${leftoverEmoji} ${hostEmoji}`; // Combine emojis
+    return `${hostEmoji}${leftoverEmoji}`; // Combine emojis
   } else if (hostEmoji) {
     return hostEmoji; // Only host emoji
   } else if (leftoverEmoji) {
