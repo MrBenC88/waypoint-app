@@ -3,6 +3,7 @@ import {
   PurposeOfVisit,
   HostStatus,
   LeftoverStatus,
+  RelationshipStatus,
 } from "./enums";
 
 export enum StatusType {
@@ -26,6 +27,7 @@ export type Friend = {
   hostStatus?: HostStatus;
   leftoverStatus?: LeftoverStatus; // 🆕 New field for Leftover status
   city: string; // **Required city field**
+  relationshipStatus: RelationshipStatus;
 };
 
 export type StatusFeedItem = {
@@ -40,6 +42,7 @@ export type StatusFeedItem = {
   leftoverStatus?: LeftoverStatus; // 🆕 New field for Leftover status in the status feed
   city: string; // **Required city field**
   date: string;
+  relationshipStatus: RelationshipStatus;
 };
 
 export type Trip = {

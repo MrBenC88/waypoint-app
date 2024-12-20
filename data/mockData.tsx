@@ -3,6 +3,7 @@ import {
   PurposeOfVisit,
   HostStatus,
   LeftoverStatus,
+  RelationshipStatus,
 } from "./enums";
 import { Friend, StatusFeedItem, StatusType, Trip, CityStatus } from "./types";
 
@@ -18,6 +19,7 @@ export const MOCK_NOTIFICATIONS: StatusFeedItem[] = [
     status: AvailabilityStatus.AvailableToMeetUp,
     city: "Toronto",
     date: "Dec 19, 2024",
+    relationshipStatus: RelationshipStatus.CloseFriend,
   },
   {
     id: "2",
@@ -28,6 +30,7 @@ export const MOCK_NOTIFICATIONS: StatusFeedItem[] = [
     status: AvailabilityStatus.LookingForRecommendations,
     city: "New York",
     date: "Dec 18, 2024",
+    relationshipStatus: RelationshipStatus.CloseFriend,
   },
 
   // **Purpose of Visit Changes**
@@ -40,6 +43,7 @@ export const MOCK_NOTIFICATIONS: StatusFeedItem[] = [
     purpose: PurposeOfVisit.ExploringCity,
     city: "Paris",
     date: "Dec 17, 2024",
+    relationshipStatus: RelationshipStatus.Friend,
   },
   {
     id: "4",
@@ -50,6 +54,7 @@ export const MOCK_NOTIFICATIONS: StatusFeedItem[] = [
     purpose: PurposeOfVisit.Conference,
     city: "London",
     date: "Dec 16, 2024",
+    relationshipStatus: RelationshipStatus.Friend,
   },
 
   // **Host Status Changes**
@@ -62,6 +67,7 @@ export const MOCK_NOTIFICATIONS: StatusFeedItem[] = [
     hostStatus: HostStatus.OpenToHost,
     city: "Tokyo",
     date: "Dec 15, 2024",
+    relationshipStatus: RelationshipStatus.Stranger,
   },
   {
     id: "6",
@@ -72,6 +78,7 @@ export const MOCK_NOTIFICATIONS: StatusFeedItem[] = [
     hostStatus: HostStatus.NotHosting,
     city: "Berlin",
     date: "Dec 14, 2024",
+    relationshipStatus: RelationshipStatus.Stranger,
   },
 
   // **Location Changes**
@@ -83,6 +90,7 @@ export const MOCK_NOTIFICATIONS: StatusFeedItem[] = [
     type: StatusType.Location,
     city: "Madrid",
     date: "Dec 13, 2024",
+    relationshipStatus: RelationshipStatus.CloseFriend,
   },
   {
     id: "8",
@@ -92,6 +100,7 @@ export const MOCK_NOTIFICATIONS: StatusFeedItem[] = [
     type: StatusType.Location,
     city: "Tokyo",
     date: "Dec 12, 2024",
+    relationshipStatus: RelationshipStatus.Friend,
   },
 
   // **Leaving Changes**
@@ -103,6 +112,7 @@ export const MOCK_NOTIFICATIONS: StatusFeedItem[] = [
     type: StatusType.Leaving,
     city: "Singapore",
     date: "Dec 11, 2024",
+    relationshipStatus: RelationshipStatus.CloseFriend,
   },
   {
     id: "10",
@@ -112,6 +122,7 @@ export const MOCK_NOTIFICATIONS: StatusFeedItem[] = [
     type: StatusType.Leaving,
     city: "Paris",
     date: "Dec 10, 2024",
+    relationshipStatus: RelationshipStatus.Friend,
   },
 
   // **Trip Additions**
@@ -123,6 +134,7 @@ export const MOCK_NOTIFICATIONS: StatusFeedItem[] = [
     type: StatusType.Trip,
     city: "Dubai",
     date: "Dec 9, 2024",
+    relationshipStatus: RelationshipStatus.Friend,
   },
   {
     id: "12",
@@ -132,6 +144,7 @@ export const MOCK_NOTIFICATIONS: StatusFeedItem[] = [
     type: StatusType.Trip,
     city: "Hong Kong",
     date: "Dec 8, 2024",
+    relationshipStatus: RelationshipStatus.Friend,
   },
 
   // Leftover Status
@@ -144,6 +157,7 @@ export const MOCK_NOTIFICATIONS: StatusFeedItem[] = [
     leftoverStatus: LeftoverStatus.Available,
     city: "Toronto",
     date: "Dec 17, 2024",
+    relationshipStatus: RelationshipStatus.Friend,
   },
   {
     id: "14",
@@ -154,6 +168,7 @@ export const MOCK_NOTIFICATIONS: StatusFeedItem[] = [
     leftoverStatus: LeftoverStatus.Consumed,
     city: "London",
     date: "Dec 16, 2024",
+    relationshipStatus: RelationshipStatus.Friend,
   },
   {
     id: "15",
@@ -164,6 +179,7 @@ export const MOCK_NOTIFICATIONS: StatusFeedItem[] = [
     leftoverStatus: LeftoverStatus.None,
     city: "Tokyo",
     date: "Dec 15, 2024",
+    relationshipStatus: RelationshipStatus.Friend,
   },
 ];
 
@@ -178,6 +194,7 @@ export const MOCK_FRIENDS: Friend[] = [
     purpose: PurposeOfVisit.WorkTrip,
     hostStatus: HostStatus.OpenToHost,
     city: "Toronto",
+    relationshipStatus: RelationshipStatus.CloseFriend,
   },
   {
     id: "2",
@@ -187,6 +204,7 @@ export const MOCK_FRIENDS: Friend[] = [
     availability: AvailabilityStatus.LookingForRecommendations,
     purpose: PurposeOfVisit.ExploringCity,
     city: "New York",
+    relationshipStatus: RelationshipStatus.CloseFriend,
   },
   {
     id: "3",
@@ -197,6 +215,7 @@ export const MOCK_FRIENDS: Friend[] = [
     purpose: PurposeOfVisit.PassingThrough,
     hostStatus: HostStatus.NotHosting,
     city: "Vancouver",
+    relationshipStatus: RelationshipStatus.Friend,
   },
   {
     id: "4",
@@ -207,6 +226,7 @@ export const MOCK_FRIENDS: Friend[] = [
     purpose: PurposeOfVisit.Conference,
     hostStatus: HostStatus.OpenToHost,
     city: "London",
+    relationshipStatus: RelationshipStatus.Friend,
   },
   {
     id: "5",
@@ -217,6 +237,7 @@ export const MOCK_FRIENDS: Friend[] = [
     purpose: PurposeOfVisit.Vacation,
     hostStatus: HostStatus.NotHosting,
     city: "Tokyo",
+    relationshipStatus: RelationshipStatus.Stranger,
   },
   // leftover status
 
@@ -230,6 +251,7 @@ export const MOCK_FRIENDS: Friend[] = [
     hostStatus: HostStatus.OpenToHost,
     leftoverStatus: LeftoverStatus.Available,
     city: "Toronto",
+    relationshipStatus: RelationshipStatus.CloseFriend,
   },
   {
     id: "7",
@@ -240,6 +262,7 @@ export const MOCK_FRIENDS: Friend[] = [
     purpose: PurposeOfVisit.ExploringCity,
     leftoverStatus: LeftoverStatus.None,
     city: "New York",
+    relationshipStatus: RelationshipStatus.Stranger,
   },
   {
     id: "8",
@@ -251,6 +274,7 @@ export const MOCK_FRIENDS: Friend[] = [
     hostStatus: HostStatus.NotHosting,
     leftoverStatus: LeftoverStatus.Consumed,
     city: "Vancouver",
+    relationshipStatus: RelationshipStatus.CloseFriend,
   },
   {
     id: "9",
@@ -262,6 +286,7 @@ export const MOCK_FRIENDS: Friend[] = [
     hostStatus: HostStatus.OpenToHost,
     leftoverStatus: LeftoverStatus.None,
     city: "London",
+    relationshipStatus: RelationshipStatus.Stranger,
   },
   {
     id: "10",
@@ -273,6 +298,7 @@ export const MOCK_FRIENDS: Friend[] = [
     hostStatus: HostStatus.NotHosting,
     leftoverStatus: LeftoverStatus.Available,
     city: "Tokyo",
+    relationshipStatus: RelationshipStatus.Friend,
   },
 ];
 
@@ -288,6 +314,7 @@ export const MOCK_STATUSES: StatusFeedItem[] = [
     status: AvailabilityStatus.AvailableToMeetUp,
     city: "Toronto",
     date: "Dec 19, 2024",
+    relationshipStatus: RelationshipStatus.CloseFriend,
   },
   {
     id: "2",
@@ -298,6 +325,7 @@ export const MOCK_STATUSES: StatusFeedItem[] = [
     status: AvailabilityStatus.LookingForRecommendations,
     city: "Paris",
     date: "Dec 14, 2024",
+    relationshipStatus: RelationshipStatus.Friend,
   },
 
   // **Purpose of Visit Changes**
@@ -310,6 +338,7 @@ export const MOCK_STATUSES: StatusFeedItem[] = [
     purpose: PurposeOfVisit.Conference,
     city: "Toronto",
     date: "Dec 18, 2024",
+    relationshipStatus: RelationshipStatus.Friend,
   },
   {
     id: "4",
@@ -320,6 +349,7 @@ export const MOCK_STATUSES: StatusFeedItem[] = [
     purpose: PurposeOfVisit.ExploringCity,
     city: "Paris",
     date: "Dec 13, 2024",
+    relationshipStatus: RelationshipStatus.Stranger,
   },
 
   // **Host Status Changes**
@@ -332,6 +362,7 @@ export const MOCK_STATUSES: StatusFeedItem[] = [
     hostStatus: HostStatus.OpenToHost,
     city: "Toronto",
     date: "Dec 17, 2024",
+    relationshipStatus: RelationshipStatus.Friend,
   },
   {
     id: "6",
@@ -342,6 +373,7 @@ export const MOCK_STATUSES: StatusFeedItem[] = [
     hostStatus: HostStatus.NotHosting,
     city: "Vancouver",
     date: "Dec 12, 2024",
+    relationshipStatus: RelationshipStatus.CloseFriend,
   },
 
   // **Location Changes**
@@ -353,6 +385,7 @@ export const MOCK_STATUSES: StatusFeedItem[] = [
     type: StatusType.Location,
     city: "Vancouver",
     date: "Dec 16, 2024",
+    relationshipStatus: RelationshipStatus.Friend,
   },
   {
     id: "8",
@@ -362,6 +395,7 @@ export const MOCK_STATUSES: StatusFeedItem[] = [
     type: StatusType.Location,
     city: "Tokyo",
     date: "Dec 12, 2024",
+    relationshipStatus: RelationshipStatus.CloseFriend,
   },
 
   // **Leaving Changes**
@@ -373,6 +407,7 @@ export const MOCK_STATUSES: StatusFeedItem[] = [
     type: StatusType.Leaving,
     city: "New York",
     date: "Dec 15, 2024",
+    relationshipStatus: RelationshipStatus.Friend,
   },
   {
     id: "10",
@@ -382,6 +417,7 @@ export const MOCK_STATUSES: StatusFeedItem[] = [
     type: StatusType.Leaving,
     city: "Tokyo",
     date: "Dec 12, 2024",
+    relationshipStatus: RelationshipStatus.Stranger,
   },
 
   // **Trip Additions**
@@ -393,6 +429,7 @@ export const MOCK_STATUSES: StatusFeedItem[] = [
     type: StatusType.Trip,
     city: "Singapore",
     date: "Dec 20, 2024",
+    relationshipStatus: RelationshipStatus.Friend,
   },
   {
     id: "12",
@@ -402,6 +439,7 @@ export const MOCK_STATUSES: StatusFeedItem[] = [
     type: StatusType.Trip,
     city: "London",
     date: "Jan 1, 2025",
+    relationshipStatus: RelationshipStatus.Friend,
   },
 
   // **Leftover Status Changes**
@@ -414,6 +452,7 @@ export const MOCK_STATUSES: StatusFeedItem[] = [
     leftoverStatus: LeftoverStatus.Available,
     city: "Toronto",
     date: "Dec 17, 2024",
+    relationshipStatus: RelationshipStatus.Friend,
   },
   {
     id: "14",
@@ -424,6 +463,7 @@ export const MOCK_STATUSES: StatusFeedItem[] = [
     leftoverStatus: LeftoverStatus.Consumed,
     city: "London",
     date: "Dec 16, 2024",
+    relationshipStatus: RelationshipStatus.Friend,
   },
   {
     id: "15",
@@ -434,6 +474,7 @@ export const MOCK_STATUSES: StatusFeedItem[] = [
     leftoverStatus: LeftoverStatus.None,
     city: "Tokyo",
     date: "Dec 15, 2024",
+    relationshipStatus: RelationshipStatus.CloseFriend,
   },
 ];
 

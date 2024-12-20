@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { View, StyleSheet, TouchableOpacity, Button } from "react-native";
+import React, { useEffect } from "react";
+import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { Text, useTheme, Avatar } from "react-native-paper";
 import Animated, {
   useSharedValue,
@@ -12,6 +12,7 @@ import {
   LeftoverStatus,
   HostStatusEmojis,
   LeftoverStatusEmojis,
+  RelationshipStatus, // 🔥 Include relationship status
 } from "../data/enums";
 
 // **Who’s in Your City Story Avatar** Component
@@ -19,14 +20,21 @@ const FriendStory = ({ friend }) => {
   const { colors } = useTheme();
 
   // Shared values for border colors
-  const borderColor = useSharedValue(0); // Value from 0 to 2 for color interpolation
+  const borderColor = useSharedValue(0); // Interpolated value for the outer ring
   const emojiScale = useSharedValue(1); // Animation for emoji scale
 
   // Update colors dynamically based on friend's status
   useEffect(() => {
+    const isCloseFriend =
+      friend.relationshipStatus === RelationshipStatus.CloseFriend;
     const isOpenToHost = friend.hostStatus === HostStatus.OpenToHost;
     const hasLeftovers = friend.leftoverStatus === LeftoverStatus.Available;
 
+    // **If Not a Close Friend, Set Grey and Stop Animations**
+    if (!isCloseFriend) {
+      borderColor.value = withTiming(0, { duration: 500 });
+      return; // Exit early for non-close friends
+    }
     if (isOpenToHost && hasLeftovers) {
       borderColor.value = withTiming(2, { duration: 500 });
     } else if (isOpenToHost) {
@@ -41,20 +49,30 @@ const FriendStory = ({ friend }) => {
     emojiScale.value = withTiming(1.5, { duration: 200 }, () => {
       emojiScale.value = withTiming(1, { duration: 200 });
     });
-  }, [friend.hostStatus, friend.leftoverStatus]);
+  }, [friend.relationshipStatus, friend.hostStatus, friend.leftoverStatus]);
 
-  // Interpolate the border color dynamically
-  const animatedBorderStyle = useAnimatedStyle(() => {
-    const color = interpolateColor(
-      borderColor.value,
-      [0, 0.5, 1, 2],
-      [
-        "#F2F2F2", // Default: Adventure White
-        "#58C9F3", // Leftovers: Sky Blue
-        "#FF8C42", // Host: Sunset Orange
-        "#FFD700", // Dual: Adventure Gold
-      ]
-    );
+  // Interpolate the outer ring color dynamically
+  const animatedOuterRingStyle = useAnimatedStyle(() => {
+    let color;
+
+    // ONLY CLOSE FRIENDS SHOW LEFTOVERS/HOST status anyways
+    if (friend.relationshipStatus === RelationshipStatus.CloseFriend) {
+      color = interpolateColor(
+        borderColor.value,
+        [0, 0.5, 1, 2],
+        [
+          "#F2F2F2", // Default grey
+          "#58C9F3", // Leftovers: Sky Blue
+          "#FF8C42", // Host: Sunset Orange
+          "#FFD700", // Dual: Adventure Gold
+        ]
+      );
+    } else if (friend.relationshipStatus === RelationshipStatus.Friend) {
+      color = "#D9D9D9"; // Grey for normal friends
+    } else {
+      color = "#F2F2F2"; // Lighter grey for strangers
+    }
+
     return {
       borderColor: color,
     };
@@ -75,15 +93,17 @@ const FriendStory = ({ friend }) => {
       style={styles.storyContainer}
       onPress={() => console.log(`Clicked on ${friend.name}`)}
     >
-      <Animated.View style={[styles.avatarContainer, animatedBorderStyle]}>
-        <Avatar.Image source={{ uri: friend.avatar }} size={60} />
-        {statusEmoji && (
-          <Animated.View
-            style={[styles.statusEmojiContainer, animatedEmojiStyle]}
-          >
-            <Text style={styles.statusEmoji}>{statusEmoji}</Text>
-          </Animated.View>
-        )}
+      <Animated.View style={[styles.outerRing, animatedOuterRingStyle]}>
+        <View style={styles.innerRing}>
+          <Avatar.Image source={{ uri: friend.avatar }} size={60} />
+          {statusEmoji && (
+            <Animated.View
+              style={[styles.statusEmojiContainer, animatedEmojiStyle]}
+            >
+              <Text style={styles.statusEmoji}>{statusEmoji}</Text>
+            </Animated.View>
+          )}
+        </View>
       </Animated.View>
       <Text style={[styles.storyName, { color: colors.onSurface }]}>
         {friend.name}
@@ -94,6 +114,8 @@ const FriendStory = ({ friend }) => {
 
 // 🎉 **Helper Function 1: Get Status Emoji**
 const getStatusEmoji = (friend) => {
+  const isCloseFriend =
+    friend.relationshipStatus === RelationshipStatus.CloseFriend;
   const hostEmoji =
     HostStatusEmojis[friend.hostStatus] ===
     HostStatusEmojis[HostStatus.OpenToHost]
@@ -105,16 +127,17 @@ const getStatusEmoji = (friend) => {
       ? LeftoverStatusEmojis[LeftoverStatus.Available]
       : "";
 
+  if (!isCloseFriend) return null;
   // Combine host and leftover emoji if both exist
   if (hostEmoji && leftoverEmoji) {
-    return `${hostEmoji}${leftoverEmoji}`; // Combine emojis
+    return `${hostEmoji}${leftoverEmoji}`;
   } else if (hostEmoji) {
-    return hostEmoji; // Only host emoji
+    return hostEmoji;
   } else if (leftoverEmoji) {
-    return leftoverEmoji; // Only leftover emoji
+    return leftoverEmoji;
   }
 
-  return null; // No emoji if no status
+  return null;
 };
 
 const styles = StyleSheet.create({
@@ -122,14 +145,22 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginRight: 15,
   },
-  avatarContainer: {
+  outerRing: {
+    width: 75,
+    height: 75,
+    borderRadius: 37.5,
+    borderWidth: 3,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  innerRing: {
     width: 68,
     height: 68,
     borderRadius: 34,
     borderWidth: 3,
+    borderColor: "#FFF",
     justifyContent: "center",
     alignItems: "center",
-    position: "relative",
   },
   avatar: {
     borderRadius: 30,

@@ -1,3 +1,10 @@
+// **Relationship Status**
+export enum RelationshipStatus {
+  Stranger = "stranger",
+  Friend = "friend",
+  CloseFriend = "close_friend",
+}
+
 // **Primary Availability Status**
 export enum AvailabilityStatus {
   AvailableToMeetUp = "Available to meet up",
