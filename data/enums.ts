@@ -22,7 +22,7 @@ export enum AvailabilityStatus {
 
 export const AvailabilityStatusEmojis: Record<AvailabilityStatus, string> = {
   [AvailabilityStatus.AvailableToMeetUp]: "☕",
-  [AvailabilityStatus.AvailableForDinner]: "🍕",
+  [AvailabilityStatus.AvailableForDinner]: "🍽️",
   [AvailabilityStatus.LookingForRecommendations]: "📍",
   [AvailabilityStatus.ChillingNoPlans]: "😎",
   [AvailabilityStatus.Busy]: "🕒",
