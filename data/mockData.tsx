@@ -1,48 +1,5 @@
 import { AvailabilityStatus, PurposeOfVisit, HostStatus } from "./enums";
-
-export enum StatusType {
-  Availability = "availability",
-  Purpose = "purpose",
-  Host = "host",
-  Location = "location",
-  Leaving = "leaving",
-  Trip = "trip",
-}
-
-// **Data Types**
-interface Friend {
-  id: string;
-  name: string;
-  avatar: string;
-  availability: AvailabilityStatus;
-  purpose?: PurposeOfVisit;
-  hostStatus?: HostStatus;
-  city: string; // **Required city field**
-}
-
-interface StatusFeedItem {
-  id: string;
-  name: string;
-  avatar: string;
-  type: StatusType;
-  status?: AvailabilityStatus;
-  purpose?: PurposeOfVisit;
-  hostStatus?: HostStatus;
-  city: string; // **Required city field**
-  date: string;
-}
-
-interface Trip {
-  id: string;
-  city: string;
-  date: string;
-}
-
-interface CityStatus {
-  id: string;
-  city: string;
-  friendsCount: number;
-}
+import { Friend, StatusFeedItem, StatusType, Trip, CityStatus } from "./types";
 
 // **Friends Section Data**
 export const MOCK_FRIENDS: Friend[] = [
