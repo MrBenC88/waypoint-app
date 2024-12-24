@@ -57,10 +57,10 @@ const StackNavigator = () => {
         name="FriendProfileScreen"
         component={FriendProfileScreen}
       />
-      <Stack.Screen
+      {/* <Stack.Screen
         name="DirectMessageScreen"
         component={DirectMessageScreen}
-      />
+      /> */}
       <Stack.Screen
         name="WhoInYourCityScreen"
         component={WhoInYourCityScreen}

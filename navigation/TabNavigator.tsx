@@ -27,9 +27,9 @@ const TabNavigator = () => {
             case "Explore":
               iconName = "search";
               break;
-            case "DM":
-              iconName = "message-square";
-              break;
+            // case "DM":
+            //   iconName = "message-square";
+            //   break;
             case "Profile":
               iconName = "user";
               break;
@@ -56,7 +56,7 @@ const TabNavigator = () => {
     >
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Explore" component={ExploreScreen} />
-      <Tab.Screen name="DM" component={DirectMessageListScreen} />
+      {/* <Tab.Screen name="DM" component={DirectMessageListScreen} /> */}
       <Tab.Screen name="Profile" component={ProfileScreen} />
       <Tab.Screen name="Notifications" component={NotificationsScreen} />
     </Tab.Navigator>
